@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="697.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.listuser">
+   <children>
+      <AnchorPane layoutY="-8.0" prefHeight="697.0" prefWidth="909.0">
+         <children>
+            <TextField fx:id="nom" layoutX="122.0" layoutY="38.0" />
+            <Text layoutX="32.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+            <TextField fx:id="gender" layoutX="103.0" layoutY="297.0" />
+            <TextField fx:id="specialite" layoutX="110.0" layoutY="466.0" />
+            <TextField fx:id="numtel" layoutX="103.0" layoutY="255.0" />
+            <TextField fx:id="password" layoutX="103.0" layoutY="208.0" />
+            <TextField fx:id="roles" layoutX="103.0" layoutY="160.0" />
+            <TextField fx:id="email" layoutX="110.0" layoutY="115.0" />
+            <TextField fx:id="prenom" layoutX="110.0" layoutY="80.0" />
+            <Text layoutX="15.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gender" />
+            <Text layoutX="9.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="specialite" />
+            <Text layoutX="6.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="numtel" wrappingWidth="50.28515625" />
+            <Text layoutX="6.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
+            <Text layoutX="9.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="roles" />
+            <Text layoutX="9.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="41.66015625" />
+            <Text layoutX="11.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prenom" />
+            <TextField fx:id="profileImage" layoutX="103.0" layoutY="358.0" />
+            <Text layoutX="10.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="profileImage" />
+            <DatePicker fx:id="birth" layoutX="97.0" layoutY="421.0" />
+            <Text layoutX="12.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
+            <ImageView fx:id="qrCodeImageView" fitHeight="137.0" fitWidth="138.0" layoutX="363.0" layoutY="539.0" />
+
+            <Button fx:id="edit" layoutX="71.0" layoutY="539.0" mnemonicParsing="false" onAction="#maj" text="Edit" />
+            <Button fx:id="adduser" layoutX="65.0" layoutY="623.0" mnemonicParsing="false" onAction="#addnew" prefHeight="26.0" prefWidth="150.0" text="Ajouter user" />
+            <Button fx:id="delete" layoutX="178.0" layoutY="539.0" mnemonicParsing="false" onAction="#del" text="Delete" />
+            <TableView fx:id="aff" layoutX="353.0" layoutY="65.0" onMouseClicked="#rowClick" prefHeight="465.0" prefWidth="530.0" />
+            <TextField fx:id="search" layoutX="389.0" layoutY="25.0" prefHeight="25.0" prefWidth="323.0" promptText="search" />
+            <Label fx:id="idlabel" layoutX="126.0" layoutY="17.0" prefHeight="17.0" prefWidth="113.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

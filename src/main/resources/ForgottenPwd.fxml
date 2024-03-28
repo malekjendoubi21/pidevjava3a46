@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ForgottenPwdController">
+   <children>
+      <TextField fx:id="mailTf" layoutX="156.0" layoutY="171.0" />
+      <TextField fx:id="codeTf" layoutX="156.0" layoutY="225.0" />
+      <Label layoutX="83.0" layoutY="176.0" text="Email" />
+      <Label layoutX="83.0" layoutY="230.0" prefHeight="17.0" prefWidth="37.0" text="Code" />
+      <Label layoutX="29.0" layoutY="108.0" text="Confirm your email, then  click on &quot;Send  code&quot;" />
+      <Button layoutX="333.0" layoutY="167.0" mnemonicParsing="false" onAction="#sendCode" prefHeight="33.0" prefWidth="139.0" style="-fx-background-radius: 20px;" text="Send me the  code" />
+      <Label layoutX="29.0" layoutY="132.0" text="Wait a moment, then  enter the code you received  and click on &quot;reset password&quot;" />
+      <Button layoutX="181.0" layoutY="282.0" mnemonicParsing="false" onAction="#resetPassword" prefHeight="33.0" prefWidth="107.0" style="-fx-border-radius: 50px; -fx-background-radius: 20px;" text="Confirm" />
+      <Label layoutX="109.0" layoutY="22.0" prefHeight="43.0" prefWidth="302.0" text="Forgotten Password " textFill="#111011">
+         <font>
+            <Font name="Avenir Roman" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="264.0" fitWidth="269.0" layoutX="531.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+
+      </ImageView>
+      <Pane opacity="0.32" prefHeight="85.0" prefWidth="484.0" style="-fx-background-color: #F6D2DC;" />
+      <Button layoutX="316.0" layoutY="282.0" mnemonicParsing="false" onAction="#cancel" prefHeight="33.0" prefWidth="107.0" style="-fx-border-radius: 50px; -fx-background-radius: 20px;" text="Cancel" />
+   </children>
+</AnchorPane>
