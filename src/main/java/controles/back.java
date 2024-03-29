@@ -1,5 +1,6 @@
 package controles;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -125,5 +126,16 @@ public class back {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }/*
+    @FXML
+    void recl(ActionEvent event, EventObject mouseEvent) {
+
+
+    }*/
+
+    public void recl(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/homeb.fxml"));
+        nomlabel.getScene().setRoot(root);
     }
 }
+

@@ -87,7 +87,8 @@ public class adddocteur {
                 newUser.setBirth(LocalDate.from(birthDateTime));
             }
             String imagePath = profileImage.getText();
-            newUser.setProfileImage(imagePath);            newUser.setGender(gender.getText());
+            newUser.setProfileImage(imagePath);
+            newUser.setGender(gender.getText());
             newUser.setSpecialite(specialite.getText());
 
             // Ajout de l'utilisateur dans la base de données

@@ -64,7 +64,7 @@ public class userservice implements IService<user>{
         String sql = "SELECT * FROM user";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
-        List<user> users = new ArrayList<>();
+    //    List<user> people = new ArrayList<>();
         while (rs.next()) {
             user user = new user();
             user.setId(rs.getInt("id"));
@@ -80,9 +80,9 @@ public class userservice implements IService<user>{
             user.setGender(rs.getString("gender"));
            // user.setSpecialite(rs.getString("specialite"));
 
-            users.add(user);
+            people.add(user);
         }
-        return users;
+        return people;
     }
     public List<user> rech(String nom) throws SQLException {
         String sql = "select * from `user` where `nom`= ?";
@@ -111,6 +111,8 @@ public class userservice implements IService<user>{
 
     public user userByMail(String mail){
         user user1;
+        System.out.println("Loading users from database...+ " +mail);
+
         if (people.isEmpty()){
             try {
                 System.out.println("people.isEmpty()");

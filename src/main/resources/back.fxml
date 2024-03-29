@@ -32,5 +32,6 @@
             <Image url="@doctor.png" />
          </image>
       </ImageView>
+      <Button layoutX="98.0" layoutY="333.0" mnemonicParsing="false" onAction="#recl" text="Button" />
     </children>
 </AnchorPane>

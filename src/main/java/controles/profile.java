@@ -164,11 +164,11 @@ public class profile {
     }
     private void showNotification() {
         try {
-            //    Image image = new Image("/Imagesdesignf/notiif.png");
+               Image image = new Image("/logo.png");
 
             Notifications notifications = Notifications.create();
-            //  notifications.graphic(new ImageView(image));
-            notifications.text("Profile update successfully");
+             notifications.graphic(new ImageView(image));
+            notifications.text("Profile updated successfully");
             notifications.title("Success Message");
             notifications.hideAfter(Duration.seconds(4));
             notifications.show();

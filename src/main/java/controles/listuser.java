@@ -8,22 +8,22 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import models.user;
-import models.docteur;
-
 import services.userservice;
 import toolkit.QRCodeGenerator;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.io.ByteArrayInputStream;
 
 public class listuser {
     userservice us = new userservice();
@@ -228,6 +228,7 @@ public class listuser {
         ObservableList<user> list = FXCollections.observableList(us.rech(search.getText()));
         aff.setItems(list);
     }
+
 
 
 }

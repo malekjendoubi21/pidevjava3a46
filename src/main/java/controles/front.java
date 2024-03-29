@@ -108,4 +108,9 @@ public class front {
         }
     }
 
+
+    public void rec(javafx.event.ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/homeb.fxml"));
+        labelprenom.getScene().setRoot(root);
+    }
 }

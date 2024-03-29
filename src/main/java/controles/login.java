@@ -109,7 +109,6 @@ public class login {
                 }
             }
 
-
             if (user != null && user.getRoles() != null) {
 
                 if (user.getRoles().contains("ROLE_ADMIN")) {
@@ -184,9 +183,6 @@ public class login {
         System.out.println(captcha.getAnswer());
         captchImg.setImage(SwingFXUtils.toFXImage(captcha.getImage(), null));
         return captcha;
-
-
-
     }
 
     boolean isValidCaptcha(){
