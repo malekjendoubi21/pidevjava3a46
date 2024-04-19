@@ -32,5 +32,7 @@
             <Image url="@doctor.png" />
          </image>
       </ImageView>
+      <Button layoutX="117.0" layoutY="416.0" mnemonicParsing="false" onAction="#affuser" text="liste user" />
+      <Button layoutX="257.0" layoutY="416.0" mnemonicParsing="false" onAction="#aduser" text="ajouter user" />
     </children>
 </AnchorPane>

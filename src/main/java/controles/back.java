@@ -1,5 +1,6 @@
 package controles;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -46,7 +47,7 @@ public class back {
 
         try {
             // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec le contenu de adduser
@@ -125,5 +126,15 @@ public class back {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void affuser(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/listuser.fxml"));
+        labelprenom.getScene().setRoot(root);
+    }
+
+    public void aduser(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/adduser.fxml"));
+        labelprenom.getScene().setRoot(root);
     }
 }

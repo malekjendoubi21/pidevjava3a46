@@ -1,0 +1,14 @@
+.profile-root {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 20px;
+}
+
+.profile-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #333333;
+}
+
+#profileImage {
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+}

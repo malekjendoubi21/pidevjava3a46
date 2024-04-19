@@ -1,0 +1,93 @@
+.top-bar{
+    -fx-background-color: #5AAC4E;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.pink-button {
+    -fx-background-color: #FF1145;
+    -fx-background-radius: 100;
+    -fx-cursor: hand;
+}
+
+
+
+.purple-button{
+    -fx-background-color: #5AAC4E;
+    -fx-background-radius: 100;
+}
+
+.transparent-button{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 100;
+}
+
+.purple-button:hover {
+    -fx-background-color: #4D9641;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pink-button:hover {
+    -fx-background-color: #FF1145;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+.purple-button:pressed {
+    -fx-background-color: #4D9641; /* change background color when pressed /
+    -fx-border-color: transparent; / change border color when pressed */
+}
+
+.transparent-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+.shadow{
+    -fx-effect: dropShadow(one-pass-box,rgba(0,0,0,0.3), 10.0 , 0.0 , 0.0, 10.0);
+}
+
+.offer-background{
+    -fx-background-color: #5AAC4E;
+    -fx-background-radius: 30;
+}
+
+.text-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 5px; / Rounded corners /
+-fx-border-color: #CCCCCC; / Border color /
+-fx-border-width: 1px; / Border width /
+-fx-border-radius: 5px; / Border radius /
+-fx-padding: 8px; / Padding inside the text field /
+-fx-font-size: 14px; / Font size /
+-fx-text-fill: #333333; / Text color /
+-fx-prompt-text-fill: #999999; / Placeholder text color /
+}
+
+.text-field:focused {
+    -fx-border-color: #5AAC4E; / Border color when focused /
+-fx-border-width: 2px; / Border width when focused /
+-fx-border-radius: 5px; / Border radius when focused */
+}
+
+.round-image-view {
+    -fx-background-radius: 50%; /* Make the ImageView round */
+    -fx-border-radius: 50%; /* Make the border round */
+    -fx-background-color: #fff; /* Optional: Set background color */
+    -fx-border-color: #000; /* Optional: Set border color */
+    -fx-border-width: 2px; /* Optional: Set border width */
+}

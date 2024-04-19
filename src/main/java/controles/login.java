@@ -109,7 +109,6 @@ public class login {
                 }
             }
 
-
             if (user != null && user.getRoles() != null) {
 
                 if (user.getRoles().contains("ROLE_ADMIN")) {
@@ -147,9 +146,9 @@ public class login {
                     alert.setGraphic(imageView);
                     alert.showAndWait();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/front.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/home2.fxml"));
                     Parent root = loader.load();
-                    front front = loader.getController();
+                       homeController home2 = loader.getController();
 
                     Scene scene = new Scene(root);
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Obtenez la fenêtre actuelle
@@ -184,9 +183,6 @@ public class login {
         System.out.println(captcha.getAnswer());
         captchImg.setImage(SwingFXUtils.toFXImage(captcha.getImage(), null));
         return captcha;
-
-
-
     }
 
     boolean isValidCaptcha(){
@@ -238,7 +234,7 @@ public class login {
 
         try {
             // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec le contenu de adduser

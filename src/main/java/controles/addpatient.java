@@ -16,10 +16,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import models.patient;
-import org.controlsfx.control.Notifications;
 import services.patientservice;
+import toolkit.PasswordEncryptor;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,7 +73,9 @@ public class addpatient {
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
             }
-            newpatient.setPassword(password.getText());
+          //  newpatient.setPassword(PasswordEncryptor.encrypt(password.getText()));
+
+           newpatient.setPassword(password.getText());
             newpatient.setNom(nom.getText());
             newpatient.setPrenom(prenom.getText());
             newpatient.setNumtel(Integer.parseInt(numtel.getText())); // Conversion en int
@@ -85,7 +86,8 @@ public class addpatient {
                 newpatient.setBirth(LocalDate.from(birthDateTime));
             }
             String imagePath = profileImage.getText();
-            newpatient.setProfileImage(imagePath);            newpatient.setGender(gender.getText());
+            newpatient.setProfileImage(imagePath);
+            newpatient.setGender(gender.getText());
 
             // Ajout de l'utilisateur dans la base de données
             us.create(newpatient);

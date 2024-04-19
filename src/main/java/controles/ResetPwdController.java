@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import models.user;
 import services.userservice;
 import toolkit.MyTools;
-import toolkit.PasswordEncryptor;
 
 import java.sql.SQLException;
 
@@ -36,9 +35,10 @@ public class ResetPwdController extends controller {
             //TODO CRITIQUE REVENIR ICI PR LE ENCRYPT
             String notencrypted= newpwdTf.getText();
 
-            String encrypted= PasswordEncryptor.encrypt(newpwdTf.getText());
-            us.updatePassword(userMail,encrypted);
+        //    String encrypted= PasswordEncryptor.encrypt(newpwdTf.getText());
+            us.updatePassword(userMail,newpwdTf.getText());
             MyTools.showAlertInfo("Password updated","Your Password was updated successfully! Go to the login page to access your account.");
+            MyTools.goTo("/login.fxml",newpwdTf);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

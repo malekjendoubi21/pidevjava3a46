@@ -93,7 +93,8 @@ public class adduser {
                 newUser.setRoles(rolesJson);
             } catch (JsonProcessingException e) {
                 e.printStackTrace();
-            }            newUser.setPassword(password.getText());
+            }
+            newUser.setPassword(password.getText());
             newUser.setNom(nom.getText());
             newUser.setPrenom(prenom.getText());
             newUser.setNumtel(Integer.parseInt(numtel.getText())); // Conversion en int

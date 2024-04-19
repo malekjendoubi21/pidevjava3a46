@@ -15,15 +15,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import models.user;
-import models.docteur;
-
 import services.userservice;
 import toolkit.QRCodeGenerator;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.io.ByteArrayInputStream;
 
 public class listuser {
     userservice us = new userservice();
@@ -44,6 +41,7 @@ public class listuser {
 
     private TableColumn<user, String> useremailColumn;
     private TableColumn<user, DatePicker> userbirthColumn;
+    private boolean isEditable = false;
 
     @FXML
     private Button recher;
@@ -181,11 +179,12 @@ public class listuser {
                 email.setText(selection.getEmail());
                 roles.setText(selection.getRoles());
                 birth.setValue(selection.getBirth());
+                lockFields();
 
-                String userData = "id" +selection.getId()+
+                String userData = "id" +selection.getId()+ "\n"+
                         "nom et prenom " +selection.getNom() + " " + selection.getPrenom() + "\n" +
                         "Gender: " + selection.getGender() + "\n" +
-                        "Email: " + selection.getEmail()+
+                        "Email: " + selection.getEmail()+ "\n"+
                         "Roles"+ selection.getRoles()
                         ;
                 BufferedImage qrCodeImage = QRCodeGenerator.generateQRCode(userData, 200, 200);
@@ -228,7 +227,17 @@ public class listuser {
         ObservableList<user> list = FXCollections.observableList(us.rech(search.getText()));
         aff.setItems(list);
     }
+    private void lockFields() {
+        isEditable = false;
+        roles.setDisable(true);
+      //  basketCB.setDisable(true);
+    }
 
+    private void unlockFields() {
+        isEditable = true;
+        roles.setDisable(false);
+        //basketCB.setDisable(false);
+    }
 
 }
 

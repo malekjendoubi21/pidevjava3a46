@@ -87,8 +87,10 @@ public class adddocteur {
                 newUser.setBirth(LocalDate.from(birthDateTime));
             }
             String imagePath = profileImage.getText();
-            newUser.setProfileImage(imagePath);            newUser.setGender(gender.getText());
+            newUser.setProfileImage(imagePath);
+            newUser.setGender(gender.getText());
             newUser.setSpecialite(specialite.getText());
+            String logoClassName = "cup"; // Remplacez 'cup' par le nom de la classe du logo que vous recherchez
 
             // Ajout de l'utilisateur dans la base de données
             ds.create(newUser);
@@ -108,6 +110,7 @@ public class adddocteur {
         } catch (NumberFormatException e) {
             showErrorAlert("Invalid phone number! Please enter a valid integer.");
         }
+
     }
     @FXML
     void browseImage(ActionEvent event) {

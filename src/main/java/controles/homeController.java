@@ -1,5 +1,6 @@
 package controles;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,15 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import models.SessionManager;
 import models.user;
 
 import java.io.IOException;
 import java.util.EventObject;
+import java.util.Objects;
 
-public class front {
-
+public class homeController {
     @FXML
     private Text nomlabel;
     private user currentUser;
@@ -31,53 +31,22 @@ public class front {
     @FXML
     private Text labelprenom;
 
-/*
     @FXML
-    void pro(ActionEvent event) {
-
-        try {
-            // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
-            Parent root = loader.load();
-
-            // Créer une nouvelle scène avec le contenu de adduser
-            Scene scene = new Scene(root);
-
-            // Obtenir la fenêtre actuelle à partir de l'événement
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Définir la nouvelle scène
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-    }*/
-
-    public void pro(javafx.event.ActionEvent actionEvent) {
-
-        try {
-            // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
-            Parent root = loader.load();
-
-            // Créer une nouvelle scène avec le contenu de adduser
-            Scene scene = new Scene(root);
-
-            // Obtenir la fenêtre actuelle à partir de l'événement (actionEvent)
-            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
-
-            // Définir la nouvelle scène
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    void goToDon(javafx.event.ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/listDon.fxml")));
+        Scene scene = ((Node) event.getSource()).getScene();
+        scene.setRoot(root);
     }
-
+    public void update(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+        nomlabel.getScene().setRoot(root);
+    }
+    @FXML
+    void goToDon2(javafx.event.ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/listDon.fxml")));
+        Scene scene = ((Node) event.getSource()).getScene();
+        scene.setRoot(root);
+    }
     public void initialize() {
         // Initialise les données de l'utilisateur à partir de SessionManager
         currentUser = SessionManager.getCurrentUser();
@@ -107,5 +76,4 @@ public class front {
             profileimage.setImage(defaultImage);
         }
     }
-
 }
