@@ -16,14 +16,12 @@
             <TextField fx:id="nom" layoutX="122.0" layoutY="38.0" />
             <Text layoutX="32.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
             <TextField fx:id="gender" layoutX="103.0" layoutY="297.0" />
-            <TextField fx:id="specialite" layoutX="110.0" layoutY="466.0" />
             <TextField fx:id="numtel" layoutX="103.0" layoutY="255.0" />
             <TextField fx:id="password" layoutX="103.0" layoutY="208.0" />
             <TextField fx:id="roles" layoutX="103.0" layoutY="160.0" />
             <TextField fx:id="email" layoutX="110.0" layoutY="115.0" />
             <TextField fx:id="prenom" layoutX="110.0" layoutY="80.0" />
             <Text layoutX="15.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gender" />
-            <Text layoutX="9.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="specialite" />
             <Text layoutX="6.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="numtel" wrappingWidth="50.28515625" />
             <Text layoutX="6.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
             <Text layoutX="9.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="roles" />
@@ -36,7 +34,7 @@
             <ImageView fx:id="qrCodeImageView" fitHeight="137.0" fitWidth="138.0" layoutX="363.0" layoutY="539.0" />
 
             <Button fx:id="edit" layoutX="71.0" layoutY="539.0" mnemonicParsing="false" onAction="#maj" text="Edit" />
-            <Button fx:id="adduser" layoutX="65.0" layoutY="623.0" mnemonicParsing="false" onAction="#addnew" prefHeight="26.0" prefWidth="150.0" text="Ajouter user" />
+            <Button fx:id="adduser" layoutX="65.0" layoutY="623.0" mnemonicParsing="false" onAction="#addnew" prefHeight="26.0" prefWidth="150.0" text="back" />
             <Button fx:id="delete" layoutX="178.0" layoutY="539.0" mnemonicParsing="false" onAction="#del" text="Delete" />
             <TableView fx:id="aff" layoutX="353.0" layoutY="65.0" onMouseClicked="#rowClick" prefHeight="465.0" prefWidth="530.0" />
             <TextField fx:id="search" layoutX="389.0" layoutY="25.0" prefHeight="25.0" prefWidth="323.0" promptText="search" />

@@ -32,7 +32,6 @@ public class ResetPwdController extends controller {
     @FXML
     void confirmNewPwd(ActionEvent event) {
         try {
-            //TODO CRITIQUE REVENIR ICI PR LE ENCRYPT
             String notencrypted= newpwdTf.getText();
 
         //    String encrypted= PasswordEncryptor.encrypt(newpwdTf.getText());

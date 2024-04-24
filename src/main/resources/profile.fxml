@@ -13,7 +13,8 @@
       <Label fx:id="email" layoutX="254.0" layoutY="286.0" prefHeight="18.0" prefWidth="176.0" />
       <ImageView fx:id="qrCodeImageView" fitHeight="107.0" fitWidth="125.0" layoutX="659.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="665.0" layoutY="440.0" mnemonicParsing="false" onAction="#handleDownloadButton" text="download qr code" />
-      <Button layoutX="108.0" layoutY="453.0" mnemonicParsing="false" onAction="#update" text="update profile" />
-      <Button layoutX="361.0" layoutY="453.0" mnemonicParsing="false" onAction="#back" text="Anuller" />
+      <Button layoutX="48.0" layoutY="448.0" mnemonicParsing="false" onAction="#update" prefHeight="36.0" prefWidth="113.0" text="update profile" />
+      <Button layoutX="387.0" layoutY="453.0" mnemonicParsing="false" onAction="#back" text="Anuller" />
+      <Button layoutX="222.0" layoutY="448.0" mnemonicParsing="false" onAction="#updatepassword" prefHeight="36.0" prefWidth="132.0" text="update Passwird" />
    </children>
 </AnchorPane>

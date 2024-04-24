@@ -3,15 +3,12 @@ package controles;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.SessionManager;
 import models.user;
@@ -81,7 +78,7 @@ public class updateprofile {
     }
 
     private void displayUserInfo(user user) {
-        idLabel.setText(String.valueOf(user.getId()));
+       // idLabel.setText(String.valueOf(user.getId()));
         emailField.setText(user.getEmail());
         nomField.setText(user.getNom());
         prenomField.setText(user.getPrenom());
@@ -179,24 +176,11 @@ public class updateprofile {
 
     }
     @FXML
-    void annuler(javafx.event.ActionEvent event) {
-        try {
-            // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home2.fxml"));
-            Parent root = loader.load();
+    void annuler(javafx.event.ActionEvent event) throws IOException {
 
-            // Créer une nouvelle scène avec le contenu de adduser
-            Scene scene = new Scene(root);
+            Parent root = FXMLLoader.load(getClass().getResource("/profile.fxml"));
+            emailField.getScene().setRoot(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            // Définir la nouvelle scène
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     private void showNotification() {
         try {

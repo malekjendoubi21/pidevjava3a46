@@ -141,8 +141,25 @@ public class profile {
         Parent root = FXMLLoader.load(getClass().getResource("/updateprofile.fxml"));
         nom.getScene().setRoot(root);
     }
+
     public void back(ActionEvent actionEvent) throws IOException {
+        currentUser = SessionManager.getCurrentUser();
+
+        if (currentUser.getRoles().contains("ROLE_ADMIN"))
+        {
+
+            Parent root = FXMLLoader.load(getClass().getResource("/back.fxml"));
+            prenom.getScene().setRoot(root);
+        }
+        else
+        {
         Parent root = FXMLLoader.load(getClass().getResource("/home2.fxml"));
+        prenom.getScene().setRoot(root);
+        }
+    }
+
+    public void updatepassword(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/updatepassword.fxml"));
         prenom.getScene().setRoot(root);
     }
 }

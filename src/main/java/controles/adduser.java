@@ -2,16 +2,14 @@ package controles;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -37,8 +35,9 @@ public class adduser {
     @FXML
     private TextField email;
 
+
     @FXML
-    private TextField gender;
+    private ComboBox<String> gender;
 
     @FXML
     private TextField nom;
@@ -64,6 +63,16 @@ public class adduser {
     @FXML
     private ImageView userImageView;
 
+
+    public void initialize() {
+
+        gender.setItems(FXCollections.observableArrayList("Homme", "Femme"));
+
+
+
+    }
+
+
     @FXML
     void browseImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -73,7 +82,6 @@ public class adduser {
             Image image = new Image(file.toURI().toString());
             userImageView.setImage(image);
 
-            // Mettre à jour le champ de texte profileImage avec le chemin de l'image sélectionnée
             profileImage.setText(file.toURI().toString());
         }
     }
@@ -85,7 +93,6 @@ public class adduser {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            // Création de l'utilisateur avec les données des champs
             user newUser = new user();
             newUser.setEmail(email.getText());
             try {
@@ -97,8 +104,7 @@ public class adduser {
             newUser.setPassword(password.getText());
             newUser.setNom(nom.getText());
             newUser.setPrenom(prenom.getText());
-            newUser.setNumtel(Integer.parseInt(numtel.getText())); // Conversion en int
-            // Vous devrez peut-être implémenter la conversion pour LocalDateTime selon le format de votre champ
+            newUser.setNumtel(Integer.parseInt(numtel.getText()));
             LocalDate selectedDate = birth.getValue();
             if (selectedDate != null) {
                 LocalDateTime birthDateTime = selectedDate.atStartOfDay();
@@ -108,21 +114,17 @@ public class adduser {
             String imagePath = profileImage.getText();
             newUser.setProfileImage(imagePath);
            // newUser.setSpecialite(specialite.getText());
-
-            // Ajout de l'utilisateur dans la base de données
+            newUser.setGender(gender.getValue());
             us.create(newUser);
 
-            // Affichage d'une alerte de succès
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
             alert.setContentText("User added successfully!");
             alert.showAndWait();
 
-            // Effacement des champs après ajout réussi
             clearFields();
         } catch (SQLException e) {
-            // En cas d'erreur SQL, afficher une alerte d'erreur
             showErrorAlert("Error adding user: " + e.getMessage());
         } catch (NumberFormatException e) {
             showErrorAlert("Invalid phone number! Please enter a valid integer.");
@@ -134,7 +136,7 @@ public class adduser {
         email.clear();
         numtel.clear();
         password.clear();
-        gender.clear();
+     //   gender.clear();
         birth.setValue(null);
         profileImage.clear();
         roles.clear();
@@ -158,7 +160,7 @@ public class adduser {
     void annuler(ActionEvent event) {
         try {
             // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/back.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec le contenu de adduser

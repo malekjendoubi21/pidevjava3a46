@@ -47,7 +47,7 @@ public class back {
 
         try {
             // Charger le fichier FXML d'adduser
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/profile.fxml"));
             Parent root = loader.load();
 
             // Créer une nouvelle scène avec le contenu de adduser

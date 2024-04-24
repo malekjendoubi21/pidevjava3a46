@@ -7,7 +7,6 @@ import javafx.util.Duration;
 
 public class MyAnimation {
 
-       // static TranslateTransition tt;
 
         private MyAnimation() {
         }

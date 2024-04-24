@@ -61,6 +61,7 @@ public class userservice implements IService<user>{
 
     @Override
     public List<user> read() throws SQLException {
+
         String sql = "SELECT * FROM user";
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(sql);
@@ -78,7 +79,7 @@ public class userservice implements IService<user>{
             user.setBirth(rs.getObject("birth", LocalDate.class));
             user.setProfileImage(rs.getString("profileImage"));
             user.setGender(rs.getString("gender"));
-           // user.setSpecialite(rs.getString("specialite"));
+           // user.docteur.setSpecialite(rs.getString("specialite"));
 
             people.add(user);
         }
@@ -143,60 +144,6 @@ public class userservice implements IService<user>{
 
 
 
-
-
-/*
-    public user userByMail(String email){
-        System.out.println("Loading users from database...+ " +email);
-
-        user user1;
-        if (people.isEmpty()){
-            try {
-                System.out.println("people.isEmpty()");
-                userservice us= new userservice();
-                us.read();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        for (user user: people) {
-            if (user.getEmail().equals(email)) {
-                System.out.println("found user by mail");
-                user1=user;
-                return user1; // Found the user, return immediately
-            }
-        }
-
-        // User with the given email not found
-        System.out.println("no found user by mail");
-
-        return null;
-
-    }/*
-    public user userByMail(String email) {
-        System.out.println("Loading users from database...+ " +email);
-        if (people.isEmpty()) {
-            try {
-                System.out.println("Loading users from database...");
-                people = read(); // Chargement des utilisateurs depuis la base de données
-            } catch (SQLException e) {
-                throw new RuntimeException("Error loading users from database", e);
-            }
-        }
-
-        // Parcourir la liste 'people' pour trouver l'utilisateur par email
-        for (user user : people) {
-            if (user.getEmail().equals(email)) {
-                System.out.println("User found by email");
-                return user; // Utilisateur trouvé, le retourner immédiatement
-            }
-        }
-
-        // Aucun utilisateur trouvé avec l'email donné
-        System.out.println("No user found by email");
-        return null;
-    }*/
     /**
      *
      * @param email (String)

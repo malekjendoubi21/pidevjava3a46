@@ -86,7 +86,7 @@ public class listuser {
     private TextField search;
     @FXML
     void addnew(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/back.fxml"));
         aff.getScene().setRoot(root);
     }
 
@@ -94,7 +94,7 @@ public class listuser {
     void initialize() throws SQLException {
         ObservableList<user> list = FXCollections.observableList(us.read());
         aff.setItems(list);
-        useridColumn = new TableColumn<>("id");
+      //  useridColumn = new TableColumn<>("id");
         usernomColumn = new TableColumn<>("nom");
         userprenomColumn = new TableColumn<>("prenom");
         usergenderColumn = new TableColumn<>("gender");
@@ -105,7 +105,7 @@ public class listuser {
         userbirthColumn = new TableColumn<>("birth");
 
 
-        useridColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //useridColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         usernomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         userprenomColumn.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         usergenderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
@@ -115,7 +115,7 @@ public class listuser {
         userrolesColumn.setCellValueFactory(new PropertyValueFactory<>("roles"));
         userbirthColumn.setCellValueFactory(new PropertyValueFactory<>("birth"));
 
-        aff.getColumns().addAll(useridColumn, usernomColumn, userprenomColumn , userrolesColumn,userbirthColumn, usergenderColumn, usernumtelColumn, useremailColumn, userspecialiteColumn);
+        aff.getColumns().addAll( usernomColumn, userprenomColumn , userrolesColumn,userbirthColumn, usergenderColumn, usernumtelColumn, useremailColumn, userspecialiteColumn);
         aff.setItems(list);
         //recherche
         FilteredList<user> filteredData = new FilteredList<>(list, b->true);
@@ -147,21 +147,21 @@ public class listuser {
     void initializedata(user user) throws SQLException {
        ObservableList<user> list = FXCollections.observableList(us.read());
         aff.setItems(list);
-        useridColumn = new TableColumn<>("id");
+        //useridColumn = new TableColumn<>("id");
         usernomColumn = new TableColumn<>("nom");
         userprenomColumn = new TableColumn<>("prenom");
         usergenderColumn = new TableColumn<>("gender");
         useremailColumn = new TableColumn<>("email");
         usernumtelColumn = new TableColumn<>("numtel");
 
-        useridColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //useridColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         usernomColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         userprenomColumn.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         usergenderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
         usernumtelColumn.setCellValueFactory(new PropertyValueFactory<>("numtel"));
         useremailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
 
-        aff.getColumns().addAll(useridColumn, usernomColumn, userprenomColumn, usergenderColumn, usernumtelColumn, useremailColumn);
+        aff.getColumns().addAll( usernomColumn, userprenomColumn, usergenderColumn, usernumtelColumn, useremailColumn);
         aff.setItems(list);
 
     }
@@ -171,7 +171,7 @@ public class listuser {
             user selection = aff.getSelectionModel().getSelectedItem();
 
             if (selection != null) {
-                idlabel.setText(String.valueOf(selection.getId()));
+            //    idlabel.setText(String.valueOf(selection.getId()));
                 nom.setText(selection.getNom());
                 prenom.setText(selection.getPrenom());
                 gender.setText(selection.getGender());
@@ -181,7 +181,7 @@ public class listuser {
                 birth.setValue(selection.getBirth());
                 lockFields();
 
-                String userData = "id" +selection.getId()+ "\n"+
+                String userData =
                         "nom et prenom " +selection.getNom() + " " + selection.getPrenom() + "\n" +
                         "Gender: " + selection.getGender() + "\n" +
                         "Email: " + selection.getEmail()+ "\n"+
@@ -230,12 +230,19 @@ public class listuser {
     private void lockFields() {
         isEditable = false;
         roles.setDisable(true);
-      //  basketCB.setDisable(true);
+        gender.setDisable(true);
+        email.setDisable(true);
+
+        //  basketCB.setDisable(true);
     }
 
     private void unlockFields() {
         isEditable = true;
         roles.setDisable(false);
+        gender.setDisable(false);
+        email.setDisable(false);
+
+
         //basketCB.setDisable(false);
     }
 
