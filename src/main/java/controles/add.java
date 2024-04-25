@@ -47,6 +47,14 @@ public class add {
     @FXML
     private TextField userid;
 
+
+    @FXML
+    void initialize() throws SQLException {
+        userid.setText("5");
+
+
+    }
+
     @FXML
     void addReclamation(ActionEvent event) throws SQLException {
 

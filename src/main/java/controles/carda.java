@@ -101,10 +101,29 @@ public class carda {
 
     @FXML
     void suppp(ActionEvent event) throws SQLException, IOException {
-        rss.delete(Integer.parseInt(repid.getText()));
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Supprimer reponse");
+        alert.setContentText("Are you sure you want to delete this item?");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/homea.fxml"));
-        hbox.getScene().setRoot(root);
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    rss.delete(Integer.parseInt(repid.getText()));
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("/homea.fxml"));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                hbox.getScene().setRoot(root);
+            }
+        });
+
     }
 
 }
