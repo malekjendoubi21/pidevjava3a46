@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.stats">
    <children>
-      <Button fx:id="displ" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#displaystats" prefHeight="75.0" prefWidth="188.0" text="Display Stats" />
-      <Button fx:id="backk" layoutX="538.0" layoutY="516.0" mnemonicParsing="false" onAction="#gobackk" prefHeight="75.0" prefWidth="208.0" text="Retour" />
+      <Button fx:id="displ" layoutX="252.0" layoutY="516.0" mnemonicParsing="false" onAction="#displaystats" prefHeight="75.0" prefWidth="188.0" text="Display Stats" styleClass="purple-button" stylesheets="@style.css"/>
+      <Button fx:id="backk" layoutX="538.0" layoutY="516.0" mnemonicParsing="false" onAction="#gobackk" prefHeight="75.0" prefWidth="208.0" text="Retour" styleClass="purple-button" stylesheets="@style.css"/>
    </children>
 </AnchorPane>

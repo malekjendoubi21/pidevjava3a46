@@ -37,6 +37,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 import services.ReponseService;
+import javafx.scene.layout.GridPane;
 public class homea {
 
     @FXML
@@ -73,24 +74,33 @@ public class homea {
     private TextField textdate;
     @FXML
     private Button stats;
+    @FXML
+    private Button repondre;
+
+    @FXML
+    private GridPane gridpane;
 
     private ReclamationService rs = new ReclamationService();
     private ReponseService rss = new ReponseService();
     @FXML
-    void initialize() throws SQLException {
+    private Button front;
+    reclamation data =reclamation.getInstance();
+    @FXML
+    void initialize() throws SQLException, IOException {
         ObservableList<reclamation> list = FXCollections.observableList(rs.read());
         xd.setItems(list);
-        idColumn = new TableColumn<>("id");
+        //idColumn = new TableColumn<>("id");
         sujetColumn = new TableColumn<>("sujet");
         contenuColumn = new TableColumn<>("contenu");
         useridColumn= new TableColumn<>("date");
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        //idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         sujetColumn.setCellValueFactory(new PropertyValueFactory<>("sujet"));
         contenuColumn.setCellValueFactory(new PropertyValueFactory<>("contenu"));
         useridColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
 
-        xd.getColumns().addAll(idColumn, sujetColumn, contenuColumn,useridColumn);
+        //xd.getColumns().addAll(idColumn, sujetColumn, contenuColumn,useridColumn);
+        xd.getColumns().addAll(sujetColumn, contenuColumn,useridColumn);
         xd.setItems(list);
 
         FilteredList<reclamation> filteredData = new FilteredList<>(list,b->true);
@@ -117,6 +127,25 @@ public class homea {
         xd.setItems(sortedData);
         ObservableList<reclamation> data = xd.getItems();
         PDFExporter.exportToPDF(data);
+
+        List<reclamation> reclamations=rs.read();
+        int column = 0;
+        int row = 1;
+        for (reclamation r : reclamations) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/carda.fxml"));
+            HBox cardBox = fxmlLoader.load();
+
+            carda cardController = fxmlLoader.getController();
+            cardController.setData(r);
+            if (column == 2) {
+                column = 0;
+                row++;
+            }
+            gridpane.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox,new javafx.geometry.Insets(10, 10, 10, 10));
+        }
+
     }
 
 
@@ -220,5 +249,19 @@ public class homea {
         notifications.show();
     }
 
+    @FXML
+    void repondre(ActionEvent event) throws IOException {
+        reclamation selection = xd.getSelectionModel().getSelectedItem();
+        data.setId(selection.getId());
+        Parent root = FXMLLoader.load(getClass().getResource("/repondre.fxml"));
+        xd.getScene().setRoot(root);
+
+    }
+
+    @FXML
+    void gotofront(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/home2.fxml"));
+        xd.getScene().setRoot(root);
+    }
 
 }

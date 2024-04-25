@@ -15,7 +15,7 @@ public class ReponseService implements IService<reponse>{
     }
     @Override
     public void create(reponse reponse) throws SQLException {
-        String sql = "insert into reponse (response,user_id)"+
+        String sql = "insert into reponse (response,reclamation_id)"+
                 "values('"+reponse.getResponse()+"','"+reponse.getReclamation_id()+"'" +
                 ")";
         Statement statement = connection.createStatement();

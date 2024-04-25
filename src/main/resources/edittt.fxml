@@ -9,35 +9,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="798.0" prefWidth="1531.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.add">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="743.0" prefWidth="1323.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.editt">
    <children>
-      <TextField fx:id="sujet" layoutX="368.0" layoutY="333.0" prefHeight="57.0" prefWidth="409.0" />
-      <TextField fx:id="userid" layoutX="456.0" layoutY="641.0" prefHeight="25.0" prefWidth="319.0" />
-      <TextField fx:id="contenu" layoutX="368.0" layoutY="463.0" prefHeight="146.0" prefWidth="409.0" />
-      <Text layoutX="368.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet" wrappingWidth="91.0" />
-      <Text layoutX="368.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu" />
-      <Text layoutX="381.0" layoutY="658.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User_id" />
-      <Button fx:id="ajouter" layoutX="368.0" layoutY="706.0" mnemonicParsing="false" onAction="#addReclamation" prefHeight="57.0" prefWidth="152.0" styleClass="purple-button" stylesheets="@style.css" text="Ajouter" />
-      <Button fx:id="annuler" layoutX="573.0" layoutY="706.0" mnemonicParsing="false" onAction="#fromAddToList" prefHeight="57.0" prefWidth="152.0" styleClass="purple-button" stylesheets="@style.css" text="Annuler" />
-      <Label fx:id="sujetLabel" layoutX="547.0" layoutY="365.0" prefHeight="25.0" prefWidth="597.0" />
-      <Label fx:id="contenuLabel" layoutX="490.0" layoutY="584.0" prefHeight="25.0" prefWidth="604.0" />
-      <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="467.0" layoutY="712.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@plus.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="673.0" layoutY="712.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@letter-x.png" />
-         </image>
-      </ImageView>
-      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="82.0" prefWidth="1521.0" stylesheets="@/style.css">
+      <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1211.0" stylesheets="@/style.css">
          <children>
             <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="147.0" styleClass="purple-button" stylesheets="@/style.css" text="Dons" textFill="WHITE">
                <font>
@@ -121,10 +100,56 @@
             <String fx:value="shadow" />
          </styleClass>
       </HBox>
-      <Label layoutX="314.0" layoutY="198.0" prefHeight="61.0" prefWidth="398.0" text="Ajouter Une Réclamation :" textFill="#18cd30">
-         <font>
-            <Font size="33.0" />
-         </font>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="51.0" prefWidth="352.0" text="Modifier Réclamation :" textAlignment="CENTER" textFill="#1bd32b">
+               <font>
+                  <Font size="33.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="400.0" right="300.0" />
+               </HBox.margin>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@edit.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets top="100.0" />
+         </VBox.margin>
+      </HBox>
+      <TextField fx:id="sujet" prefHeight="25.0" prefWidth="819.0">
+         <VBox.margin>
+            <Insets bottom="50.0" left="200.0" right="200.0" top="50.0" />
+         </VBox.margin>
+      </TextField>
+      <Label fx:id="sujetLabel" prefHeight="18.0" prefWidth="224.0">
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
       </Label>
+      <TextField fx:id="contenu" prefHeight="25.0" prefWidth="534.0">
+         <VBox.margin>
+            <Insets bottom="50.0" left="200.0" right="200.0" />
+         </VBox.margin>
+      </TextField>
+      <Label fx:id="contenuLabel" prefHeight="18.0" prefWidth="200.0" />
+      <TextField fx:id="userid" editable="false" prefHeight="25.0" prefWidth="534.0" visible="false">
+         <VBox.margin>
+            <Insets bottom="25.0" left="200.0" right="200.0" />
+         </VBox.margin>
+      </TextField>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="modifier" mnemonicParsing="false" onAction="#mod" prefHeight="70.0" prefWidth="193.0" styleClass="purple-button" stylesheets="@style.css" text="Modifier">
+               <HBox.margin>
+                  <Insets left="400.0" right="150.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="annuler" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#ann" prefHeight="70.0" prefWidth="193.0" styleClass="purple-button" stylesheets="@style.css" text="Annuler" />
+         </children>
+      </HBox>
    </children>
-</AnchorPane>
+</VBox>

@@ -3,6 +3,7 @@ package models;
 import java.sql.Timestamp;
 
 public class reclamation {
+    private static final reclamation instance = new reclamation();
     private int id;
     private String sujet;
     private String contenu;
@@ -17,6 +18,13 @@ public class reclamation {
         this.sujet = sujet;
         this.contenu = contenu;
         this.date = date;
+        this.user_id = user_id;
+    }
+
+    public reclamation(int id, String sujet, String contenu, int user_id) {
+        this.id = id;
+        this.sujet = sujet;
+        this.contenu = contenu;
         this.user_id = user_id;
     }
 
@@ -50,6 +58,14 @@ public class reclamation {
         this.contenu = contenu;
     }
 
+    public Timestamp getDate() {
+        return date;
+    }
+
+    public void setDate(Timestamp date) {
+        this.date = date;
+    }
+
 
     public int getUser_id() {
         return user_id;
@@ -68,11 +84,8 @@ public class reclamation {
                 '}';
     }
 
-    public Timestamp getDate() {
-        return date;
+    public static reclamation getInstance(){
+        return instance;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
-    }
 }

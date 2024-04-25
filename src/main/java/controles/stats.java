@@ -61,7 +61,7 @@ public class stats{
     @FXML
     void displaystats(ActionEvent event) throws IOException, SQLException, InterruptedException {
         List<reclamation> list = rs.read();
-        FileWriter fileWriter = new FileWriter("C:/Users/Mega-PC/Desktop/Workshop/intermed.txt"); // Change the file path
+        FileWriter fileWriter = new FileWriter("C:/Users/Mega-PC/Desktop/Workshop/intermed.txt");
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         for (reclamation rec : list) {
             bufferedWriter.write(rec.getContenu()+"\n");
@@ -127,7 +127,7 @@ public class stats{
 
     @FXML
     void gobackk(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/homea.fxml"));
         backk.getScene().setRoot(root);
 
     }

@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import models.PDFExporter;
 import models.reclamation;
 import org.w3c.dom.Text;
+import services.DataValidation;
 import services.ReclamationService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +36,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 import services.ReponseService;
+import javafx.scene.control.Label;
 public class home {
 
     @FXML
@@ -45,6 +47,12 @@ public class home {
 
     @FXML
     private TextField search;
+
+    @FXML
+    private Label sujetLabel;
+
+    @FXML
+    private Label contenuLabel;
 
     @FXML
     private TableView<reclamation> xd;
@@ -135,12 +143,26 @@ public class home {
     }
     @FXML
     public void maj(javafx.event.ActionEvent actionEvent) throws SQLException {
-        reclamation selection = xd.getSelectionModel().getSelectedItem();
-        selection.setSujet(sujet.getText());
-        selection.setContenu(contenu.getText());
-        rs.update(selection);
-        ObservableList<reclamation> list = FXCollections.observableList(rs.read());
-        xd.setItems(list);
+
+        boolean sujetAlphabetic = DataValidation.textAlphabet(sujet, sujetLabel, "Please only enter letters from a - z");
+        boolean sujetEmpty = DataValidation.textFieldIsNull(sujet, sujetLabel, "Should not be empty");
+        boolean contenuEmpty = DataValidation.textFieldIsNull(contenu, contenuLabel, "Should not be empty");
+
+        boolean sujetValid = !sujetEmpty && sujetAlphabetic;
+        boolean contenuValid = !contenuEmpty;
+
+        if (sujetValid && contenuValid) {
+            reclamation selection = xd.getSelectionModel().getSelectedItem();
+            selection.setSujet(sujet.getText());
+            selection.setContenu(contenu.getText());
+            rs.update(selection);
+            ObservableList<reclamation> list = FXCollections.observableList(rs.read());
+            xd.setItems(list);
+
+            // Clear the error messages from the labels
+            sujetLabel.setText("");
+            contenuLabel.setText("");
+        }
     }
     @FXML
     public void del(javafx.event.ActionEvent actionEvent) throws SQLException {
