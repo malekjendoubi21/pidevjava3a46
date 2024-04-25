@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="923.0" prefWidth="1531.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.ajouterpublication">
+    <children>
+        <TextField fx:id="titre" layoutX="108.0" layoutY="39.0" />
+        <TextField fx:id="contenu" layoutX="108.0" layoutY="81.0" prefHeight="9.0" prefWidth="150.0" />
+        <Text layoutX="39.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre" wrappingWidth="42.907012939453125" />
+        <Text layoutX="32.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contenu" wrappingWidth="56.0" />
+        <Button fx:id="ajouter" layoutX="120.0" layoutY="161.0" mnemonicParsing="false" onAction="#onajouter" text="ajouter" />
+        <Button fx:id="annuler" layoutX="218.0" layoutY="161.0" mnemonicParsing="false" onAction="#onannuler" text="annuler" />
+      <Text layoutX="44.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="image" />
+      <TextField fx:id="imagep" layoutX="109.0" layoutY="116.0" />
+      <Button layoutX="341.0" layoutY="161.0" mnemonicParsing="false" onAction="#browseimage" text="Parcourir" />
+      <ImageView fx:id="imagepub" fitHeight="100.0" fitWidth="165.0" layoutX="291.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+    </children>
+
+</AnchorPane>
