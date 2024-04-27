@@ -38,6 +38,8 @@ import java.util.List;
 import java.util.Optional;
 import services.ReponseService;
 import javafx.scene.layout.GridPane;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
 public class homea {
 
     @FXML
@@ -265,4 +267,49 @@ public class homea {
         xd.getScene().setRoot(root);
     }
 
+    void refreshh(FilteredList<reclamation> filteredData) throws SQLException, IOException {
+        gridpane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+        for (reclamation r : filteredData) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/carda.fxml"));
+            HBox cardBox = fxmlLoader.load();
+
+            carda cardController = fxmlLoader.getController();
+            cardController.setData(r);
+            if (column == 2) {
+                column = 0;
+                row++;
+            }
+            gridpane.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox,new javafx.geometry.Insets(10, 10, 10, 10));
+        }
+    }
+    @FXML
+    void ertyu(InputMethodEvent event) {
+        System.out.println("change");
+    }
+    @FXML
+    void chn(KeyEvent event) throws SQLException, IOException {
+        List<reclamation> reclamations = rs.ffxd(search.getText());
+        gridpane.getChildren().clear();
+        int column = 0;
+        int row = 1;
+        for (reclamation r : reclamations) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/carda.fxml"));
+            HBox cardBox = fxmlLoader.load();
+
+            carda cardController = fxmlLoader.getController();
+            cardController.setData(r);
+            if (column == 2) {
+                column = 0;
+                row++;
+            }
+            gridpane.add(cardBox, column++, row);
+            GridPane.setMargin(cardBox,new javafx.geometry.Insets(10, 10, 10, 10));
+        }
+
+    }
 }

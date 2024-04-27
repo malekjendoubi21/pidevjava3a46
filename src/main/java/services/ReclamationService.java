@@ -76,4 +76,23 @@ public class ReclamationService  implements IService<reclamation>{
         }
         return people;
     }
+
+    public List<reclamation> ffxd(String ff) throws SQLException {
+        String sql = "SELECT * FROM reclamation WHERE sujet LIKE CONCAT('%', ?, '%') OR contenu LIKE CONCAT('%', ?, '%')";
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, ff);
+        statement.setString(2, ff);
+        ResultSet rs = statement.executeQuery();
+        List<reclamation> people = new ArrayList<>();
+        while (rs.next()) {
+            reclamation p = new reclamation();
+            p.setId(rs.getInt("id"));
+            p.setSujet(rs.getString("sujet"));
+            p.setContenu(rs.getString("contenu"));
+            p.setUser_id(rs.getInt("user_id"));
+            p.setDate(rs.getTimestamp("date"));
+            people.add(p);
+        }
+        return people;
+    }
 }

@@ -19,7 +19,7 @@
       <TableView layoutX="14.0" layoutY="89.0" onMouseClicked="#rowClick" prefHeight="565.0" prefWidth="430.0" visible="false" fx:id="xd" />
       <Button fx:id="edit" layoutX="21.0" layoutY="735.0" mnemonicParsing="false" onAction="#maj" prefHeight="25.0" prefWidth="138.0" styleClass="purple-button" stylesheets="@style.css" text="Edit" visible="false" />
       <Button fx:id="delete" layoutX="188.0" layoutY="735.0" mnemonicParsing="false" onAction="#del" prefHeight="25.0" prefWidth="138.0" styleClass="purple-button" stylesheets="@style.css" text="Delete" visible="false" />
-      <TextField fx:id="search" layoutX="257.0" layoutY="70.0" prefHeight="25.0" prefWidth="956.0" promptText="search" />
+      <TextField fx:id="search" layoutX="257.0" layoutY="70.0" onInputMethodTextChanged="#ertyu" onKeyTyped="#chn" prefHeight="25.0" prefWidth="956.0" promptText="search" />
       <TextField fx:id="sujet" layoutX="102.0" layoutY="661.0" prefHeight="25.0" prefWidth="224.0" visible="false" />
       <TextField fx:id="contenu" layoutX="102.0" layoutY="701.0" prefHeight="25.0" prefWidth="224.0" visible="false" />
       <Text layoutX="24.0" layoutY="678.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sujet" visible="false" wrappingWidth="66.13671875" />
@@ -60,8 +60,10 @@
             <GridPane fx:id="gridpane" hgap="35.0" prefHeight="585.0" prefWidth="808.0" vgap="35.0">
                <columnConstraints>
 
+
                </columnConstraints>
                <rowConstraints>
+
 
                </rowConstraints>
 
