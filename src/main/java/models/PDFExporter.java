@@ -6,6 +6,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class PDFExporter {
@@ -25,7 +26,7 @@ public class PDFExporter {
             float tableWidth = page.getMediaBox().getWidth() - 2 * margin;
             float yPosition = yStart;
 
-            // Create table header
+
             String[] headers = {"ID", "Sujet", "Contenu"};
             float tableHeight = 20f;
             float rowHeight = 15f;
@@ -35,13 +36,13 @@ public class PDFExporter {
             contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
             drawTable(contentStream, yStart, tableWidth, cellMargin, headers, tableHeight, rowHeight);
 
-            // Add data to the table
+
             contentStream.setFont(PDType1Font.HELVETICA, 12);
             drawTableData(contentStream, yStart, tableWidth, cellMargin, data, tableHeight, rowHeight);
 
             contentStream.close();
 
-            // Save the document
+
             document.save("list.pdf");
             document.close();
 
@@ -55,16 +56,22 @@ public class PDFExporter {
 
     private static void drawTable(PDPageContentStream contentStream, float yStart, float tableWidth,
                                   float cellMargin, String[] headers, float tableHeight, float rowHeight) throws IOException {
-        // Draw headers
-        contentStream.setLineWidth(1f);
+        // Set font and font size
         contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
-        float yPosition = yStart;
+
+        // Calculate initial x-position
+        float xPosition = cellMargin;
+
+        // Draw headers horizontally
         for (String header : headers) {
+            // Begin text
             contentStream.beginText();
-            contentStream.newLineAtOffset(cellMargin, yPosition - tableHeight);
+            contentStream.newLineAtOffset(xPosition, yStart - tableHeight);
             contentStream.showText(header);
             contentStream.endText();
-            yPosition -= rowHeight;
+
+            // Update x-position for the next header
+            xPosition += tableWidth / headers.length;
         }
 
         // Draw horizontal line under headers
@@ -74,12 +81,14 @@ public class PDFExporter {
         contentStream.stroke();
     }
 
+
+
     private static void drawTableData(PDPageContentStream contentStream, float yStart, float tableWidth,
                                       float cellMargin, ObservableList<reclamation> data, float tableHeight, float rowHeight) throws IOException {
         float yPosition = yStart;
         for (reclamation item : data) {
             if (yPosition - rowHeight <= 0) {
-                // Page overflow, create a new page
+
                 PDPage newPage = new PDPage();
                 document.addPage(newPage);
                 contentStream.close();
@@ -101,5 +110,6 @@ public class PDFExporter {
             yPosition -= rowHeight;
         }
     }
+
 
 }
