@@ -122,12 +122,6 @@ public class homea {
 
         });
 
-        SortedList<reclamation> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(xd.comparatorProperty());
-        xd.setItems(sortedData);
-        ObservableList<reclamation> data = xd.getItems();
-        PDFExporter.exportToPDF(data);
-
         List<reclamation> reclamations=rs.read();
         int column = 0;
         int row = 1;
@@ -145,6 +139,13 @@ public class homea {
             gridpane.add(cardBox, column++, row);
             GridPane.setMargin(cardBox,new javafx.geometry.Insets(10, 10, 10, 10));
         }
+        SortedList<reclamation> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(xd.comparatorProperty());
+        xd.setItems(sortedData);
+        ObservableList<reclamation> data = xd.getItems();
+        PDFExporter.exportToPDF(data);
+
+
 
     }
 
