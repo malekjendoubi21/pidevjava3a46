@@ -78,11 +78,6 @@ public class ajouterpublication {
             ps.create(p);
             onannuler(event);
 
-            alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Succès");
-            alert.setHeaderText(null);
-            alert.setContentText("Publication ajoutée avec succès.");
-            alert.showAndWait();
         } else {
             txtlabell.setText("Veuillez renseigner tous les champs");
             txtlabell.setVisible(true);

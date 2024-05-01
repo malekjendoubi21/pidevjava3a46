@@ -8,12 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.util.Duration;
 import models.commentaire;
 import models.publication;
 import services.commentaireservice;
 import services.commentaireservice;
 import services.publicationservice;
 import utils.MyDatabase;
+import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
 import java.net.URL;
@@ -54,8 +57,7 @@ public class addcomentaire {
     @FXML
     private Button btn_signal;
 
-    @FXML
-    private Button btn_updatecomment;
+
 
     @FXML
     private TextField contentcomment;
@@ -67,7 +69,7 @@ public class addcomentaire {
     // Clé API de votre compte Twilio
     public static final String ACCOUNT_SID = "AC74d9a1a9a629af8a3d0580a2b6b5186a";
     // Clé secrète de votre compte Twilio
-    public static final String AUTH_TOKEN = "8aaf6241e6e86f06a3c4898e4860e2d3";
+    public static final String AUTH_TOKEN = "28454a21061bbafa4f524ff4ed2e79f6";
     @FXML
     void initialize() throws SQLException {
        // ObservableList<commentaire> list = FXCollections.observableList(ps.read());
@@ -115,13 +117,28 @@ public class addcomentaire {
         c.setContenu(contentcomment.getText());
         c.setPublication_id(data.getId());
         ps.create(c);
+        showNotification();
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         Parent root = fxmlLoader.load(getClass().getResource("/addcomentaire.fxml"));
         btn_addcomment.getScene().setRoot(root);
     }
 
 
+    private void showNotification() {
+        try {
+           // Image image = new Image("/log.png");
 
+            Notifications notifications = Notifications.create();
+       //     notifications.graphic(new ImageView(image));
+            notifications.text("Commentaire added successfully");
+            notifications.title("Success Message");
+            notifications.hideAfter(Duration.seconds(4));
+            notifications.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @FXML
@@ -167,9 +184,9 @@ public class addcomentaire {
 
             ps.update(selection);
 
-            if (selection.getSignalements() > 9) {
+            if (selection.getSignalements() > 4) {
 
-            //    sendTwilioMessage();
+                sendTwilioMessage();
                 ps.delete(selection.getId());
             }
         }
@@ -177,15 +194,14 @@ public class addcomentaire {
         Parent root = fxmlLoader.load(getClass().getResource("/addcomentaire.fxml"));
         btn_signal.getScene().setRoot(root);
     }
-    /*private void sendTwilioMessage() {
+    private void sendTwilioMessage() {
         try {
-            // Initialiser Twilio
             Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 
-            String toPhoneNumber = "+21653560823"; // Numéro du destinataire de la notification
-            String msgContent = "WARNING: Your comment have been deleted."; // Texte du message
+            String toPhoneNumber = "+21653560823";
+            String msgContent = "WARNING: a comment have been deleted.";
 
-            // Envoyer le SMS
+
             Message message = Message.creator(
                             new PhoneNumber(toPhoneNumber),
                             new PhoneNumber(TWILIO_PHONE_NUMBER),
@@ -196,9 +212,9 @@ public class addcomentaire {
 
         } catch (ApiException e) {
             System.err.println("Error sending SMS: " + e.getMessage());
-            // Afficher une boîte de dialogue d'erreur dans votre application JavaFX, logger l'erreur, etc.
+
         }
-    }*/
+    }
 
     @FXML
     void annuler(ActionEvent event) {

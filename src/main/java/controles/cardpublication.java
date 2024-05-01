@@ -28,8 +28,6 @@ public class cardpublication {
     private publication publication;
     publication data = publication.getInstance();
 
-    @FXML
-    private Button bt_comment;
 
     @FXML
     private ImageView imagepub;

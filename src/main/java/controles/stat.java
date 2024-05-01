@@ -1,41 +1,46 @@
 package controles;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import models.commentaire;
-import models.publication;
-import services.commentaireservice;
-import services.commentaireservice;
-import services.publicationservice;
-import utils.MyDatabase;
+import javafx.fxml.FXML;
+import javafx.scene.chart.PieChart;
+import javafx.application.Platform;
 
-import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.stream.Collectors;
+import java.sql.Statement;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 public class stat {
+    @FXML
+    private PieChart pieChart;
+    private final String USER = "root";
+    private final String PASS = "";
+    String url = "jdbc:mysql://localhost:3306/notreatment1";
 
+    public void initialize() {
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
+        try (Connection conn = DriverManager.getConnection(url, USER, PASS)) {
+            String sql = "SELECT p.titre, COUNT(c.id) AS NombreCommentaires "
+                    + "FROM Publication p "
+                    + "LEFT JOIN Commentaire c ON c.publication_id = p.id "
+                    + "GROUP BY p.titre";
 
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
 
+            while (rs.next()) {
+                String titre = rs.getString("titre");
+                int nombreCommentaires = rs.getInt("NombreCommentaires");
+                pieChartData.add(new PieChart.Data(titre, nombreCommentaires));
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
 
-
-
-
-
-
+        Platform.runLater(() -> {
+            pieChart.setData(pieChartData);
+        });
+    }
 }
