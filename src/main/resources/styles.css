@@ -1,0 +1,56 @@
+/* Styles for the root pane */
+.root {
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+}
+
+/* Styles for text fields */
+.text-field {
+    -fx-background-color: white;
+    -fx-border-color: #CCCCCC;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+}
+
+/* Styles for text elements */
+.text {
+    -fx-font-size: 16px;
+    -fx-fill: #333333;
+}
+
+/* Styles for buttons */
+.button {
+    -fx-background-color: #5AAC4E;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+}
+
+/* Hover styles for buttons */
+.button:hover {
+    -fx-background-color: #4D9641;
+    -fx-border-color: #FFFFFF;
+}
+
+/* Styles for the table */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+/* Styles for table rows */
+.table-row-cell {
+    -fx-background-color: #F2F2F2;
+}
+
+/* Styles for the header of the table */
+.table-column-header {
+    -fx-background-color: #5AAC4E;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
