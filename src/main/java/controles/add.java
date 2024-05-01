@@ -103,7 +103,7 @@ public class add {
 
             cardpublication cardController = fxmlLoader.getController();
             cardController.setData(p);
-            if (column == 4) {
+            if (column == 3) {
                 column = 0;
                 row++;
             }

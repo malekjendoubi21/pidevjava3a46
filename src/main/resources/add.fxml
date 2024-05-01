@@ -37,7 +37,6 @@
                      <GridPane fx:id="gridpane" prefHeight="416.0" prefWidth="952.0">
                         <columnConstraints>
 
-
                         </columnConstraints>
                         <rowConstraints>
 
@@ -51,7 +50,7 @@
                </ScrollPane>
             </children>
          </AnchorPane>
-         <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1211.0" stylesheets="@/values/style.css">
+         <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1560.0" stylesheets="@/values/style.css">
             <children>
                <Button mnemonicParsing="false" onAction="#goToPub" prefHeight="62.0" prefWidth="147.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Dons" textFill="WHITE">
                   <font>

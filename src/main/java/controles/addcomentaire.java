@@ -144,7 +144,7 @@ public class addcomentaire {
         ps.delete(selection.getId());
         ObservableList<commentaire> list = FXCollections.observableList(ps.read());
         af.setItems(list);
-        af.refresh();
+
     }
 
     public void update(ActionEvent actionEvent) throws SQLException {
@@ -199,6 +199,15 @@ public class addcomentaire {
             // Afficher une boîte de dialogue d'erreur dans votre application JavaFX, logger l'erreur, etc.
         }
     }*/
+
+    @FXML
+    void annuler(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
+            contentcomment.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }    }
     }
 
 

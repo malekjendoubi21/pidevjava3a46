@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -16,22 +17,32 @@
             <Font name="Book Antiqua" size="51.0" />
          </font>
       </Text>
-      <Label layoutX="50.0" layoutY="119.0" text="Contenu :">
+      <Label layoutX="37.0" layoutY="169.0" text="Contenu :">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="contentcomment" layoutX="121.0" layoutY="117.0" />
+      <TextField fx:id="contentcomment" layoutX="120.0" layoutY="167.0" />
       <Label layoutX="37.0" layoutY="169.0" text="Publication:" visible="false">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btn_addcomment" layoutX="120.0" layoutY="238.0" mnemonicParsing="false" onAction="#addComment" prefHeight="26.0" prefWidth="85.0" styleClass="green-button" stylesheets="@stylesheet.css" text="Add" />
-      <Button fx:id="btn_deletecomment" layoutX="119.0" layoutY="288.0" mnemonicParsing="false" onAction="#deletecomment" prefHeight="26.0" prefWidth="86.0" styleClass="pink-button" stylesheets="@stylesheet.css" text="Delete" />
+      <Button fx:id="btn_addcomment" layoutX="120.0" layoutY="238.0" mnemonicParsing="false" onAction="#addComment" prefHeight="26.0" prefWidth="85.0" styleClass="green-button" stylesheets="@stylesheet.css" text="Add">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="btn_deletecomment" layoutX="119.0" layoutY="288.0" mnemonicParsing="false" onAction="#deletecomment" prefHeight="26.0" prefWidth="86.0" styleClass="pink-button" stylesheets="@stylesheet.css" text="Delete">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
       <ComboBox fx:id="publication_id_choicebox" layoutX="120.0" layoutY="167.0" prefWidth="150.0" visible="false" />
       <TableView fx:id="af" layoutX="316.0" layoutY="107.0" onMouseClicked="#rowClick" prefHeight="315.0" prefWidth="334.0" />
       <TextField fx:id="sign" layoutX="114.0" layoutY="206.0" visible="false" />
-      <Button fx:id="btn_signal" layoutX="137.0" layoutY="344.0" mnemonicParsing="false" onAction="#signaler" text="Signal" />
+      <Button fx:id="btn_signal" layoutX="120.0" layoutY="340.0" mnemonicParsing="false" onAction="#signaler" prefHeight="26.0" prefWidth="85.0" style="-fx-background-color: #ff8000; -fx-border-radius: 100;" styleClass="orange-button" stylesheets="@stylesheet.css" text="Signal">
+         <effect>
+            <InnerShadow />
+         </effect></Button>
+      <Button fx:id="annuler" layoutX="119.0" layoutY="387.0" mnemonicParsing="false" onAction="#annuler" prefHeight="26.0" prefWidth="86.0" text="Cancel" />
    </children>
 </AnchorPane>
