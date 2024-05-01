@@ -63,8 +63,6 @@ public class editpublication {
 
         modifier.getScene().setRoot(root);
 
-
-
     }
 
     public void initData(publication l) throws IOException {

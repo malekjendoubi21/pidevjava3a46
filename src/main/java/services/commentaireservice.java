@@ -28,13 +28,13 @@ public class commentaireservice implements IService<commentaire>{
 
     @Override
     public void update(commentaire commentaire) throws SQLException {
-        String sql = "update commentaire set  contenu = ? ,publication_id=? where id = ?";
+        String sql = "update commentaire set  contenu = ?  ,signalements = ? where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, commentaire.getContenu());
-        ps.setInt(2, commentaire.getPublication_id());
+        ps.setInt(2, commentaire.getSignalements());
+        ps.setInt(3, commentaire.getId());
         ps.executeUpdate();
     }
-
 
 
 
@@ -62,6 +62,7 @@ public class commentaireservice implements IService<commentaire>{
         return people;
     }
 
+
     public String affichageCommentaire(int id) throws SQLException {
         String sql = "SELECT titre FROM publication WHERE id=?";
         PreparedStatement statement = connection.prepareStatement(sql);
@@ -76,6 +77,25 @@ public class commentaireservice implements IService<commentaire>{
         statement.close();
 
         return a;
+    }
+    public List<commentaire> readByPublicationId(int publicationId) throws SQLException {
+        List<commentaire> commentaires = new ArrayList<>();
+        String query = "SELECT * FROM commentaire WHERE publication_id = ?";
+        try (PreparedStatement preparedStatement = MyDatabase.getInstance().getConnection().prepareStatement(query)) {
+            preparedStatement.setInt(1, publicationId);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    commentaire commentaire = new commentaire();
+                    commentaire.setId(resultSet.getInt("id"));
+                    commentaire.setContenu(resultSet.getString("contenu"));
+                    commentaire.setSignalements(resultSet.getInt("signalements"));
+                    // Ajouter d'autres attributs si nécessaire
+
+                    commentaires.add(commentaire);
+                }
+            }
+        }
+        return commentaires;
     }
 
 }

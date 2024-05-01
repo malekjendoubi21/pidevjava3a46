@@ -1,5 +1,6 @@
 package controles;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,13 +16,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.publication;
 import services.publicationservice;
+import toolkit.QRCodeGenerator;
+
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 
 
 public class cardpublication {
+    private publication publication;
     publication data = publication.getInstance();
+
+    @FXML
+    private Button bt_comment;
 
     @FXML
     private ImageView imagepub;
@@ -34,7 +42,7 @@ public class cardpublication {
 
 
     @FXML
-    private TextField imagep;
+    private Label imagep;
     @FXML
     private Label id;
 
@@ -46,14 +54,16 @@ public class cardpublication {
 
     @FXML
     private Button supprimer;
+    @FXML
+    private Button displayQRButton;
+    public ImageView qrcodeimage;
     private publicationservice ps = new publicationservice();
 
     @FXML
     void del(ActionEvent event) {
 
-
-
                 try {
+
                     ps.delete(Integer.parseInt(id.getText()));
                     Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
                     supprimer.getScene().setRoot(root);
@@ -61,7 +71,6 @@ public class cardpublication {
                     throw new RuntimeException(e);
                 }
             }
-
 
 
     @FXML
@@ -93,17 +102,27 @@ public class cardpublication {
             Image image1 = new Image(imagePath);
             imagepub.setImage(image1);
         } else {
-            // Chargez une image par défaut à partir des ressources de votre application
+
             try {
                 InputStream inputStream = getClass().getResourceAsStream("/default_profile_image.png");
                 Image defaultImage = new Image(inputStream);
                 imagepub.setImage(defaultImage);
             } catch (NullPointerException e) {
-                // Affichez un message d'erreur si l'image par défaut n'est pas trouvée
+
                 System.err.println("Image par défaut introuvable : " + e.getMessage());
             }
         }
     }
+    @FXML
+    void commenter(ActionEvent event) {
+        try {
+            data.setId(Integer.parseInt(id.getText()));
+            Parent root = FXMLLoader.load(getClass().getResource("/addcomentaire.fxml"));
+            contenu.getScene().setRoot(root);
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }    }
+
+    }
 
 
-}

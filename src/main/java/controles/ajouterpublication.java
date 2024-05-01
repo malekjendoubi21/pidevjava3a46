@@ -19,7 +19,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-
+import javafx.scene.control.Label;
 public class ajouterpublication {
     publicationservice ps=new publicationservice();
 
@@ -40,6 +40,10 @@ public class ajouterpublication {
 
     @FXML
     private TextField titre;
+    @FXML
+    private Label txtlabell;
+    @FXML
+    private Label TitreCtrl;
 
     @FXML
     void browseimage(ActionEvent event) {
@@ -56,15 +60,17 @@ public class ajouterpublication {
 
     @FXML
     void onajouter(ActionEvent event) throws SQLException, IOException {
-        // Vérification si les champs ne sont pas vides
-        if(titre.getText().isEmpty() || contenu.getText().isEmpty() || imagep.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez remplir tous les champs.");
-            alert.showAndWait();
-        } else {
-            // Ajout de la publication
+        Alert alert;
+
+        // Vérifiez d'abord si le titre est en majuscules
+        if (!titre.getText().equals(titre.getText().toUpperCase())) {
+            TitreCtrl.setText("Le titre doit être en majuscules");
+            TitreCtrl.setVisible(true);
+            return;
+        }
+
+        // Ensuite, vérifiez si tous les champs sont remplis
+        if(!titre.getText().isEmpty() && !contenu.getText().isEmpty() && !imagep.getText().isEmpty()) {
             String imagePath = imagep.getText();
 
             publication p = new publication(titre.getText(), contenu.getText(), imagePath);
@@ -72,14 +78,15 @@ public class ajouterpublication {
             ps.create(p);
             onannuler(event);
 
-            // Affichage d'une confirmation
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès");
             alert.setHeaderText(null);
             alert.setContentText("Publication ajoutée avec succès.");
             alert.showAndWait();
+        } else {
+            txtlabell.setText("Veuillez renseigner tous les champs");
+            txtlabell.setVisible(true);
         }
-
     }
 
     @FXML

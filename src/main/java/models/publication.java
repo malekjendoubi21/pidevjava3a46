@@ -1,9 +1,17 @@
 package models;
 
+import java.util.List;
+
 public class publication {
     int id;
     String titre;
     String contenu;
+   /* private List<commentaire> comments;
+
+
+    public boolean hasComments() {
+        return !(comments.isEmpty());
+    }*/
     String imageurl;
     private static final publication instance = new publication();
     public publication() {

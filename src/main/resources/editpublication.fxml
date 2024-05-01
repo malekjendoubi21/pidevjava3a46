@@ -11,17 +11,17 @@
     <children>
         <AnchorPane prefHeight="798.0" prefWidth="1531.0">
             <children>
-                <TextField fx:id="titre" layoutX="469.0" layoutY="102.0" prefHeight="26.0" prefWidth="270.0" />
-                <TextField fx:id="contenu" layoutX="469.0" layoutY="201.0" prefHeight="26.0" prefWidth="280.0" />
-                <Button fx:id="modifier" layoutX="381.0" layoutY="469.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="98.0" text="Edit" textFill="WHITE" />
-                <Button fx:id="retour" layoutX="749.0" layoutY="469.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" text="Retour" textFill="WHITE" />
+                <TextField fx:id="titre" layoutX="396.0" layoutY="183.0" prefHeight="26.0" prefWidth="270.0" />
+                <TextField fx:id="contenu" layoutX="391.0" layoutY="252.0" prefHeight="26.0" prefWidth="280.0" />
+                <Button fx:id="modifier" layoutX="353.0" layoutY="399.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="98.0" styleClass="green-button" stylesheets="@stylesheet.css" text="Edit" textFill="WHITE" />
+                <Button fx:id="retour" layoutX="585.0" layoutY="399.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="108.0" styleClass="pink-button" stylesheets="@stylesheet.css" text="Retour" textFill="WHITE" />
                 <VBox layoutX="10.0" layoutY="10.0" />
                 <ImageView fx:id="imagepub" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                <Label layoutX="381.0" layoutY="106.0" prefHeight="18.0" prefWidth="62.0" text="Titre" />
-                <Label layoutX="381.0" layoutY="201.0" prefHeight="18.0" prefWidth="62.0" text="Contenu" />
+                <Label layoutX="311.0" layoutY="187.0" prefHeight="18.0" prefWidth="62.0" text="Titre" />
+                <Label layoutX="311.0" layoutY="256.0" prefHeight="18.0" prefWidth="62.0" text="Contenu" />
                 <AnchorPane layoutX="-6.0" prefHeight="798.0" prefWidth="226.0" />
-            <Label layoutX="381.0" layoutY="280.0" text="Image : " />
-            <TextField fx:id="imagep" layoutX="460.0" layoutY="275.0" prefHeight="26.0" prefWidth="262.0" />
+            <Label layoutX="381.0" layoutY="280.0" opacity="0.0" text="Image : " />
+            <TextField fx:id="imagep" layoutX="460.0" layoutY="275.0" opacity="0.0" prefHeight="26.0" prefWidth="262.0" />
             </children>
         </AnchorPane>
     </children>
