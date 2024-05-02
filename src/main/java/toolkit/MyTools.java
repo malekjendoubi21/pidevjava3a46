@@ -20,7 +20,6 @@ public class MyTools {
             Parent root = loader.load();
             System.out.println("root in my tools"+root);
 
-            // Get the controller instance
             if (node.getScene() != null) {
                 System.out.println(" node.getScene() in my tools"+ node.getScene());
                 node.getScene().setRoot(root);

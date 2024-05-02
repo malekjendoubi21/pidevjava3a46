@@ -49,7 +49,6 @@ public class ForgottenPwdController extends controller {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/ResetPwd.fxml"));
                 Parent root = loader.load();
 
-                // Get the controller instance
                 ResetPwdController controller = loader.getController();
 
                 controller.initData(currUser);
@@ -115,7 +114,6 @@ public class ForgottenPwdController extends controller {
             htmlContent = htmlContent.replace("{otp}", otp);
             return htmlContent;
         } catch (IOException e) {
-            // Log the error or display a message to the user
             throw new RuntimeException("Failed to load email template: " + e.getMessage(), e);
         }
     }

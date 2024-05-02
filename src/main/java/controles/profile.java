@@ -5,23 +5,29 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import models.SessionManager;
 import models.user;
+import services.userservice;
+import toolkit.MyTools;
 import toolkit.QRCodeGenerator;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class profile {
 
     @FXML
     private Label email;
+    userservice us= new userservice();
 
     @FXML
     private Label nom;
@@ -40,7 +46,6 @@ public class profile {
 
 
     public void initialize() {
-        // Initialise les données de l'utilisateur à partir de SessionManager
         currentUser = SessionManager.getCurrentUser();
         System.out.println("IDdddddddddd: ");
 
@@ -48,12 +53,11 @@ public class profile {
             System.out.println("ccccccccccccc: ");
 
             displayUserInfo(currentUser);
-            displayUserImage(currentUser); // Affichez l'image de l'utilisateur
+            displayUserImage(currentUser);
             displayuserqrcode(currentUser);
             System.out.println("ID: " + currentUser.getId());
             System.out.println("Email: " + currentUser.getEmail());
 
-            // Ajoutez des instructions similaires pour les autres attributs de l'utilisateur
         } else {
             System.out.println("Utilisateur actuel non défini.");
         }
@@ -72,12 +76,11 @@ public class profile {
     }
 
     private void displayUserImage(user user) {
-        String imagePath = user.getProfileImage(); // Obtenez le chemin de l'image de l'utilisateur
+        String imagePath = user.getProfileImage();
         if (imagePath != null && !imagePath.isEmpty()) {
             Image image = new Image(imagePath);
             userImageView.setImage(image);
         } else {
-            // Affichez une image par défaut si le chemin de l'image est vide ou nul
             Image defaultImage = new Image(getClass().getResourceAsStream("default_profile_image.png"));
             userImageView.setImage(defaultImage);
         }
@@ -97,7 +100,6 @@ public class profile {
                 ;
         BufferedImage qrCodeImage = QRCodeGenerator.generateQRCode(userData, 200, 200);
 
-        // Afficher le QR code où vous le souhaitez, peut-être dans un ImageView
         if (qrCodeImage != null) {
             Image fxImage = SwingFXUtils.toFXImage(qrCodeImage, null);
             qrCodeImageView.setImage(fxImage);
@@ -112,22 +114,17 @@ public class profile {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Enregistrer l'image");
 
-        // Ajoutez ici les filtres pour spécifier le type d'image à enregistrer, si nécessaire
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PNG", "*.png"));
 
-        // Afficher la boîte de dialogue "Enregistrer sous"
         File file = fileChooser.showSaveDialog(null);
 
         if (file != null) {
             try {
-                // Convertir l'ImageView en BufferedImage
                 javafx.scene.image.Image image = qrCodeImageView.getImage();
                 java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
-                // Enregistrer l'image dans le fichier spécifié
                 ImageIO.write(bufferedImage, "png", file);
             } catch (IOException ex) {
-                // Gérer les erreurs d'entrée/sortie ici
                 ex.printStackTrace();
             }
         } else {
@@ -161,5 +158,26 @@ public class profile {
     public void updatepassword(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/updatepassword.fxml"));
         prenom.getScene().setRoot(root);
+    }
+
+    @FXML
+    public void del(javafx.event.ActionEvent actionEvent) throws SQLException {
+        currentUser = SessionManager.getCurrentUser();
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText("Confirmation de la suppression");
+        confirmationAlert.setContentText("Êtes-vous sûr de vouloir supprimer votre compte ?");
+
+        confirmationAlert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                try {
+                    us.delete(currentUser.getId());
+                    MyTools.showAlertInfo("Suppression réussie", "Votre compte a été supprimé avec succès !");
+                    MyTools.goTo("/login.fxml", prenom);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

@@ -2,16 +2,14 @@ package controles;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -36,7 +34,7 @@ public class adddocteur {
     private TextField email;
 
     @FXML
-    private TextField gender;
+    private ComboBox<String> gender;
 
     @FXML
     private TextField nom;
@@ -56,10 +54,15 @@ public class adddocteur {
     private ImageView userImageView;
     @FXML
     private TextField roles;
-
     @FXML
-    private TextField specialite;
+    private ComboBox<String> specialite;
+
     private final docteurservice ds =new docteurservice();
+    public void initialize() {
+        gender.setItems(FXCollections.observableArrayList("Homme", "Femme"));
+        specialite.setItems(FXCollections.observableArrayList("Généraliste", "Dermatologue" ,"Cardiologue","Ophtalmologue","Pédiatre","Neurologue"));
+
+    }
 
     @FXML
     void adddocteur(ActionEvent event) {
@@ -67,7 +70,55 @@ public class adddocteur {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
-            // Création de l'utilisateur avec les données des champs
+            String emailText = email.getText();
+            if (emailText.isEmpty() || !emailText.contains("@") || !emailText.endsWith(".com")) {
+                showErrorAlert("Invalid email! Please enter a valid email address.");
+                return;
+            }
+
+            String passwordText = password.getText();
+            if (passwordText.isEmpty() || !passwordText.matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
+                showErrorAlert("Invalid password! Password must contain at least one uppercase letter, one digit, and have a minimum length of 8 characters.");
+                return;
+            }
+
+            String numtelText = numtel.getText();
+            if (numtelText.isEmpty() || !numtelText.matches("^\\d{8}$") || Integer.parseInt(numtelText) < 0) {
+                showErrorAlert("Invalid phone number! Please enter a valid 8-digit positive integer.");
+                return;
+            }
+
+            String nomText = nom.getText();
+            if (nomText.isEmpty() || !nomText.matches("[a-zA-Z]+")) {
+                showErrorAlert("Invalid name! Please enter a valid name containing letters only.");
+                return;
+            }
+
+            String prenomText = prenom.getText();
+            if (prenomText.isEmpty() || !prenomText.matches("[a-zA-Z]+")) {
+                showErrorAlert("Invalid last name! Please enter a valid last name containing letters only.");
+                return;
+            }
+
+            LocalDate minBirthdate = LocalDate.now().minusYears(27);
+
+            LocalDate selectedDate = birth.getValue();
+            if (selectedDate == null || selectedDate.isAfter(LocalDate.now()) || selectedDate.isAfter(minBirthdate)) {
+                showErrorAlert("Invalid birth date! Please enter a valid date where the user is at least 27 years old.");
+                return;
+            }
+
+            String genderText = gender.getValue().toLowerCase();
+            if (genderText.isEmpty() || (genderText.equals("feminin") || genderText.equals("masculine") || genderText.equals("f") || genderText.equals("m"))) {
+                showErrorAlert("Invalid gender! Please enter a gender other than 'Feminin' or 'Masculine', and 'F' or 'M'.");
+                return;
+            }
+
+            String specialiteText = specialite.getValue();
+            if (specialiteText.isEmpty()) {
+                showErrorAlert("Speciality field is empty! Please enter a valid speciality.");
+                return;
+            }
             docteur newUser = new docteur();
             newUser.setEmail(email.getText());
             try {
@@ -80,32 +131,27 @@ public class adddocteur {
             newUser.setNom(nom.getText());
             newUser.setPrenom(prenom.getText());
             newUser.setNumtel(Integer.parseInt(numtel.getText())); // Conversion en int
-            // Vous devrez peut-être implémenter la conversion pour LocalDateTime selon le format de votre champ
-            LocalDate selectedDate = birth.getValue();
+          //  LocalDate selectedDate = birth.getValue();
             if (selectedDate != null) {
                 LocalDateTime birthDateTime = selectedDate.atStartOfDay();
                 newUser.setBirth(LocalDate.from(birthDateTime));
             }
             String imagePath = profileImage.getText();
             newUser.setProfileImage(imagePath);
-            newUser.setGender(gender.getText());
-            newUser.setSpecialite(specialite.getText());
-            String logoClassName = "cup"; // Remplacez 'cup' par le nom de la classe du logo que vous recherchez
+            newUser.setGender(gender.getValue());
+            newUser.setSpecialite(specialite.getValue());
+            String logoClassName = "cup";
 
-            // Ajout de l'utilisateur dans la base de données
             ds.create(newUser);
 
-            // Affichage d'une alerte de succès
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
             alert.setHeaderText(null);
             alert.setContentText("User added successfully!");
             alert.showAndWait();
 
-            // Effacement des champs après ajout réussi
             clearFields();
         } catch (SQLException e) {
-            // En cas d'erreur SQL, afficher une alerte d'erreur
             showErrorAlert("Error adding user: " + e.getMessage());
         } catch (NumberFormatException e) {
             showErrorAlert("Invalid phone number! Please enter a valid integer.");
@@ -121,7 +167,6 @@ public class adddocteur {
             Image image = new Image(file.toURI().toString());
             userImageView.setImage(image);
 
-            // Mettre à jour le champ de texte profileImage avec le chemin de l'image sélectionnée
             profileImage.setText(file.toURI().toString());
         }
     }
@@ -131,11 +176,11 @@ public class adddocteur {
         email.clear();
         numtel.clear();
         password.clear();
-        gender.clear();
+        //gender.clear();
           birth.setValue(null);
         profileImage.clear();
         roles.clear();
-        specialite.clear();
+      //  specialite.clear();
     }
 
 
@@ -150,17 +195,13 @@ public class adddocteur {
     void annuler(ActionEvent event) {
 
         try {
-            // Charger le fichier FXML d'adduser
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec le contenu de adduser
             Scene scene = new Scene(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Définir la nouvelle scène
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

@@ -60,17 +60,13 @@ public class front {
     public void pro(javafx.event.ActionEvent actionEvent) {
 
         try {
-            // Charger le fichier FXML d'adduser
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/updateprofile.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec le contenu de adduser
             Scene scene = new Scene(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement (actionEvent)
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
-            // Définir la nouvelle scène
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -79,13 +75,12 @@ public class front {
     }
 
     public void initialize() {
-        // Initialise les données de l'utilisateur à partir de SessionManager
         currentUser = SessionManager.getCurrentUser();
 
         if (currentUser != null) {
 
             displayUserInfo(currentUser);
-            displayUserImage(currentUser); // Affichez l'image de l'utilisateur
+            displayUserImage(currentUser);
 
         }
     }
@@ -97,12 +92,11 @@ public class front {
     }
 
     private void displayUserImage(user user) {
-        String imagePath = user.getProfileImage(); // Obtenez le chemin de l'image de l'utilisateur
+        String imagePath = user.getProfileImage();
         if (imagePath != null && !imagePath.isEmpty()) {
             Image image = new Image(imagePath);
             profileimage.setImage(image);
         } else {
-            // Affichez une image par défaut si le chemin de l'image est vide ou nul
             Image defaultImage = new Image(getClass().getResourceAsStream("default_profile_image.png"));
             profileimage.setImage(defaultImage);
         }

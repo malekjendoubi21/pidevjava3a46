@@ -117,7 +117,7 @@ public class listuser {
 
         aff.getColumns().addAll( usernomColumn, userprenomColumn , userrolesColumn,userbirthColumn, usergenderColumn, usernumtelColumn, useremailColumn, userspecialiteColumn);
         aff.setItems(list);
-        //recherche
+
         FilteredList<user> filteredData = new FilteredList<>(list, b->true);
         search.textProperty().addListener((observable,oldValue,newValue ) -> {
             filteredData.setPredicate(user -> {
@@ -167,7 +167,7 @@ public class listuser {
     }
     @FXML
     public void rowClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getClickCount() == 1) { // Check if it's a single click
+        if (mouseEvent.getClickCount() == 1) {
             user selection = aff.getSelectionModel().getSelectedItem();
 
             if (selection != null) {
@@ -198,29 +198,7 @@ public class listuser {
         }
     }
 
-    @FXML
-    public void maj(ActionEvent actionEvent) throws SQLException {
-        user selection = aff.getSelectionModel().getSelectedItem();
-        selection.setNom(nom.getText());
-        selection.setPrenom(prenom.getText());
-        selection.setGender(gender.getText());
-        selection.setEmail(email.getText());
-        selection.setRoles(roles.getText());
 
-        selection.setBirth(birth.getValue());
-
-
-        us.update(selection);
-        ObservableList<user> list = FXCollections.observableList(us.read());
-        aff.setItems(list);
-    }
-    @FXML
-    public void del(javafx.event.ActionEvent actionEvent) throws SQLException {
-        user selection = aff.getSelectionModel().getSelectedItem();
-        us.delete(selection.getId());
-        ObservableList<user> list = FXCollections.observableList(us.read());
-        aff.setItems(list);
-    }
     @FXML
     public void recherche(javafx.event.ActionEvent actionEvent) throws SQLException {
         us.rech(search.getText());
@@ -233,7 +211,6 @@ public class listuser {
         gender.setDisable(true);
         email.setDisable(true);
 
-        //  basketCB.setDisable(true);
     }
 
     private void unlockFields() {
@@ -243,7 +220,6 @@ public class listuser {
         email.setDisable(false);
 
 
-        //basketCB.setDisable(false);
     }
 
 }

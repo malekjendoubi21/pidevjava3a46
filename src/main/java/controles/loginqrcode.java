@@ -18,7 +18,7 @@ public class loginqrcode {
     private ImageView qrcode;
 
     @FXML
-    private Canvas canvas; // Ajoutez un Canvas dans votre fichier FXML et injectez-le ici
+    private Canvas canvas;
 
     void browseImage() {
         FileChooser fileChooser = new FileChooser();
@@ -28,7 +28,6 @@ public class loginqrcode {
             Image image = new Image(file.toURI().toString());
             qrcode.setImage(image);
 
-            // Mettre à jour le champ de texte profileImage avec le chemin de l'image sélectionnée
             //  profileImage.setText(file.toURI().toString());
         }
     }
@@ -37,26 +36,20 @@ public class loginqrcode {
         browseImage();
         Image image = qrcode.getImage();
 
-        // Convertir l'image en BufferedImage
         BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
-        // Extraire la première ligne de pixels
         int width = bufferedImage.getWidth();
         int[] pixels = new int[width];
         bufferedImage.getRGB(0, 0, width, 1, pixels, 0, width);
 
-        // Dessiner les pixels sur le Canvas
         drawPixelsOnCanvas(pixels);
     }
 
     private void drawPixelsOnCanvas(int[] pixels) {
-        // Obtenez le contexte graphique du Canvas
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        // Effacer le contenu précédent du Canvas
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-        // Dessiner les pixels sur le Canvas
         double pixelWidth = canvas.getWidth() / pixels.length;
         for (int i = 0; i < pixels.length; i++) {
             int pixel = pixels[i];

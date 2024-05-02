@@ -4,6 +4,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -27,6 +28,7 @@ public class updateprofile {
     private final userservice userservice;
     @FXML
     private ImageView userImageView;
+    private boolean isEditable = false;
 
     @FXML
     private TextField emailField;
@@ -50,7 +52,7 @@ public class updateprofile {
     private user currentUser;
 
     public updateprofile() {
-        this.userservice = new userservice(); // Ou injectez UserService si nécessaire
+        this.userservice = new userservice();
     }
 
     public updateprofile(userservice userservice) {
@@ -58,7 +60,6 @@ public class updateprofile {
     }
 
     public void initialize() {
-        // Initialise les données de l'utilisateur à partir de SessionManager
         currentUser = SessionManager.getCurrentUser();
         System.out.println("IDdddddddddd: ");
 
@@ -66,12 +67,13 @@ public class updateprofile {
             System.out.println("ccccccccccccc: ");
 
             displayUserInfo(currentUser);
-            displayUserImage(currentUser); // Affichez l'image de l'utilisateur
+            displayUserImage(currentUser);
              displayuserqrcode(currentUser);
+            lockFields();
+
             System.out.println("ID: " + currentUser.getId());
             System.out.println("Email: " + currentUser.getEmail());
 
-            // Ajoutez des instructions similaires pour les autres attributs de l'utilisateur
         } else {
             System.out.println("Utilisateur actuel non défini.");
         }
@@ -95,17 +97,13 @@ public class updateprofile {
     @FXML
     void saveProfile(ActionEvent event) {
         try {
-            // Mettre à jour les données de l'utilisateur avec les valeurs des champs
             currentUser.setEmail(emailField.getText());
             currentUser.setNom(nomField.getText());
             currentUser.setPrenom(prenomField.getText());
             currentUser.setNumtel(Integer.parseInt(numtelField.getText()));
             currentUser.setGender(genderField.getText());
-
-            // Appel de la méthode de mise à jour dans le service utilisateur
             userservice.update(currentUser);
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée (affichage d'une boîte de dialogue d'erreur, par exemple)
             e.printStackTrace();
         }
     }
@@ -123,29 +121,51 @@ public class updateprofile {
 
     public void saveProfile(javafx.event.ActionEvent actionEvent) {
         try {
-            // Mettre à jour les données de l'utilisateur avec les valeurs des champs
+
+                String emailText = emailField.getText();
+                if (emailText.isEmpty() || !emailText.contains("@") || !emailText.endsWith(".com")) {
+                    showErrorAlert("Invalid email! Please enter a valid email address.");
+                    return;
+                }
+
+
+
+                String numtelText = numtelField.getText();
+                if (numtelText.isEmpty() || !numtelText.matches("^\\d{8}$") || Integer.parseInt(numtelText) < 0) {
+                    showErrorAlert("Invalid phone number! Please enter a valid 8-digit positive integer.");
+                    return;
+                }
+
+                String nomText = nomField.getText();
+                if (nomText.isEmpty() || !nomText.matches("[a-zA-Z]+")) {
+                    showErrorAlert("Invalid name! Please enter a valid name containing letters only.");
+                    return;
+                }
+
+                String prenomText = prenomField.getText();
+                if (prenomText.isEmpty() || !prenomText.matches("[a-zA-Z]+")) {
+                    showErrorAlert("Invalid last name! Please enter a valid last name containing letters only.");
+                    return;
+                }
             currentUser.setEmail(emailField.getText());
             currentUser.setNom(nomField.getText());
             currentUser.setPrenom(prenomField.getText());
             currentUser.setNumtel(Integer.parseInt(numtelField.getText()));
             currentUser.setGender(genderField.getText());
 
-            // Appel de la méthode de mise à jour dans le service utilisateur
             userservice.update(currentUser);
             showNotification();
         } catch (SQLException e) {
-            // Gérer l'exception de manière appropriée (affichage d'une boîte de dialogue d'erreur, par exemple)
             e.printStackTrace();
         }
 
     }
     private void displayUserImage(user user) {
-        String imagePath = user.getProfileImage(); // Obtenez le chemin de l'image de l'utilisateur
+        String imagePath = user.getProfileImage();
         if (imagePath != null && !imagePath.isEmpty()) {
             Image image = new Image(imagePath);
             userImageView.setImage(image);
         } else {
-            // Affichez une image par défaut si le chemin de l'image est vide ou nul
             Image defaultImage = new Image(getClass().getResourceAsStream("default_profile_image.png"));
             userImageView.setImage(defaultImage);
         }
@@ -165,7 +185,6 @@ public class updateprofile {
                 ;
         BufferedImage qrCodeImage = QRCodeGenerator.generateQRCode(userData, 200, 200);
 
-        // Afficher le QR code où vous le souhaitez, peut-être dans un ImageView
         if (qrCodeImage != null) {
             Image fxImage = SwingFXUtils.toFXImage(qrCodeImage, null);
             qrCodeImageView.setImage(fxImage);
@@ -184,7 +203,7 @@ public class updateprofile {
     }
     private void showNotification() {
         try {
-               Image image = new Image("/logo.png");
+               Image image = new Image("/log.png");
 
             Notifications notifications = Notifications.create();
              notifications.graphic(new ImageView(image));
@@ -202,22 +221,17 @@ public class updateprofile {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Enregistrer l'image");
 
-        // Ajoutez ici les filtres pour spécifier le type d'image à enregistrer, si nécessaire
         // fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PNG", "*.png"));
 
-        // Afficher la boîte de dialogue "Enregistrer sous"
         File file = fileChooser.showSaveDialog(null);
 
         if (file != null) {
             try {
-                // Convertir l'ImageView en BufferedImage
                 javafx.scene.image.Image image = qrCodeImageView.getImage();
                 java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
-                // Enregistrer l'image dans le fichier spécifié
                 ImageIO.write(bufferedImage, "png", file);
             } catch (IOException ex) {
-                // Gérer les erreurs d'entrée/sortie ici
                 ex.printStackTrace();
             }
         }
@@ -228,27 +242,35 @@ public class updateprofile {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Enregistrer l'image");
 
-        // Ajoutez ici les filtres pour spécifier le type d'image à enregistrer, si nécessaire
          fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PNG", "*.png"));
 
-        // Afficher la boîte de dialogue "Enregistrer sous"
         File file = fileChooser.showSaveDialog(null);
 
         if (file != null) {
             try {
-                // Convertir l'ImageView en BufferedImage
                 javafx.scene.image.Image image = qrCodeImageView.getImage();
                 java.awt.image.BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
 
-                // Enregistrer l'image dans le fichier spécifié
                 ImageIO.write(bufferedImage, "png", file);
             } catch (IOException ex) {
-                // Gérer les erreurs d'entrée/sortie ici
                 ex.printStackTrace();
             }
         } else {
             System.out.println("Aucun fichier sélectionné.");
         }
+
+    }
+        private void showErrorAlert(String message) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
+    private void lockFields() {
+        isEditable = false;
+        emailField.setDisable(true);
+
 
     }
 }

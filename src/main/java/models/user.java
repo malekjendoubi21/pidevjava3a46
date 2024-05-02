@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class user {
-    private int id; // L'ID sera auto-incrémenté dans la base de données
+    private int id;
     private String email;
     private String roles;
     private String password;
@@ -17,7 +17,6 @@ public class user {
     private String gender;
     private int code;
 
-    // Constructeur sans l'ID (car il est auto-incrémenté)
     public user(String email, String roles, String password, String nom, String prenom, int numtel,
                 LocalDateTime birth, String profileImage, String gender) {
         this.email = email;
@@ -35,7 +34,6 @@ public class user {
 
     }
 
-    // Getters et Setters pour id
     public int getId() {
         return id;
     }
@@ -92,7 +90,6 @@ public class user {
         this.numtel = numtel;
     }
 
-    // Convertir LocalDateTime en LocalDate dans getBirth()
     public LocalDate getBirth() {
         if (birth != null) {
             return birth.toLocalDate();
@@ -100,7 +97,6 @@ public class user {
         return null;
     }
 
-    // Convertir LocalDate en LocalDateTime dans setBirth()
     public void setBirth(LocalDate birth) {
         if (birth != null) {
             this.birth = birth.atStartOfDay();

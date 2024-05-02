@@ -44,7 +44,7 @@ public class userservice implements IService<user>{
         ps.setString(4, user.getNom());
         ps.setString(5, user.getPrenom());
         ps.setInt(6, user.getNumtel());
-        ps.setObject(7, user.getBirth()); // Assuming birth is a LocalDateTime
+        ps.setObject(7, user.getBirth());
         ps.setString(8, user.getProfileImage());
         ps.setString(9, user.getGender());
         ps.setInt(10, user.getId());

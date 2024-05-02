@@ -10,7 +10,6 @@ public class MyEmailSender {
 
 
 
-    // send(String to,String sub,String msg, html, code)
     public static void send(String to,String sub, String content){
         //Get properties object
         Properties props = new Properties();
@@ -20,7 +19,6 @@ public class MyEmailSender {
                 "javax.net.ssl.SSLSocketFactory");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
-        //get Session
         Session session = Session.getDefaultInstance(props,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -33,7 +31,7 @@ public class MyEmailSender {
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
             message.setSubject(sub);
             // message.setText(msg);
-            message.setContent(content,"text/html; charset=utf-8");  //mettre html file
+            message.setContent(content,"text/html; charset=utf-8");
             //send message
             Transport.send(message);
             System.out.println("message sent successfully");
@@ -51,7 +49,6 @@ public class MyEmailSender {
 class SendMailSSL{
     public static void main(String[] args) {
         int code= 12344;
-        //from,password,to,subject,message
         ForgottenPwdController fpdc= new ForgottenPwdController();
         String mail= fpdc.getHtmlContent(String.valueOf(code));
 
@@ -59,6 +56,5 @@ class SendMailSSL{
         MyEmailSender.send("malekeljendoubi@gmail.com","Reset your password ",mail);
 
 
-        //change from, password and to
     }
 }

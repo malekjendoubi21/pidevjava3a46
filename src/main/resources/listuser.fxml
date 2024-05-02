@@ -1,45 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="697.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.listuser">
    <children>
-      <AnchorPane layoutY="-8.0" prefHeight="697.0" prefWidth="909.0">
+      <AnchorPane layoutY="-8.0" prefHeight="698.0" prefWidth="1221.0">
          <children>
-            <TextField fx:id="nom" layoutX="122.0" layoutY="38.0" />
-            <Text layoutX="32.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
-            <TextField fx:id="gender" layoutX="103.0" layoutY="297.0" />
-            <TextField fx:id="numtel" layoutX="103.0" layoutY="255.0" />
-            <TextField fx:id="password" layoutX="103.0" layoutY="208.0" />
-            <TextField fx:id="roles" layoutX="103.0" layoutY="160.0" />
-            <TextField fx:id="email" layoutX="110.0" layoutY="115.0" />
-            <TextField fx:id="prenom" layoutX="110.0" layoutY="80.0" />
-            <Text layoutX="15.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="gender" />
-            <Text layoutX="6.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="numtel" wrappingWidth="50.28515625" />
-            <Text layoutX="6.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="password" />
-            <Text layoutX="9.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="roles" />
-            <Text layoutX="9.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" wrappingWidth="41.66015625" />
-            <Text layoutX="11.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prenom" />
-            <TextField fx:id="profileImage" layoutX="103.0" layoutY="358.0" />
-            <Text layoutX="10.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="profileImage" />
-            <DatePicker fx:id="birth" layoutX="97.0" layoutY="421.0" />
-            <Text layoutX="12.0" layoutY="438.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
+            <TextField fx:id="nom" layoutX="97.0" layoutY="121.0" prefHeight="26.0" prefWidth="170.0" />
+            <Text layoutX="30.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="nom" />
+            <TextField fx:id="gender" layoutX="97.0" layoutY="396.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="numtel" layoutX="97.0" layoutY="349.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="password" layoutX="97.0" layoutY="306.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="roles" layoutX="97.0" layoutY="258.0" prefHeight="26.0" prefWidth="175.0" />
+            <TextField fx:id="email" layoutX="97.0" layoutY="217.0" prefHeight="26.0" prefWidth="166.0" />
+            <TextField fx:id="prenom" layoutX="97.0" layoutY="174.0" prefHeight="26.0" prefWidth="166.0" />
+            <Text layoutX="13.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
+            <Text layoutX="19.0" layoutY="367.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NumTel" wrappingWidth="50.28515625" />
+            <Text layoutX="18.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <Text layoutX="21.0" layoutY="276.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role" />
+            <Text layoutX="22.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="41.66015625" />
+            <Text layoutX="22.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom" />
+            <TextField fx:id="profileImage" layoutX="95.0" layoutY="440.0" prefHeight="26.0" prefWidth="175.0" />
+            <Text layoutX="10.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ProfileImage" />
+            <DatePicker fx:id="birth" layoutX="97.0" layoutY="488.0" />
+            <Text layoutX="12.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birthday" />
             <ImageView fx:id="qrCodeImageView" fitHeight="137.0" fitWidth="138.0" layoutX="363.0" layoutY="539.0" />
-
-            <Button fx:id="edit" layoutX="71.0" layoutY="539.0" mnemonicParsing="false" onAction="#maj" text="Edit" />
-            <Button fx:id="adduser" layoutX="65.0" layoutY="623.0" mnemonicParsing="false" onAction="#addnew" prefHeight="26.0" prefWidth="150.0" text="back" />
-            <Button fx:id="delete" layoutX="178.0" layoutY="539.0" mnemonicParsing="false" onAction="#del" text="Delete" />
-            <TableView fx:id="aff" layoutX="353.0" layoutY="65.0" onMouseClicked="#rowClick" prefHeight="465.0" prefWidth="530.0" />
-            <TextField fx:id="search" layoutX="389.0" layoutY="25.0" prefHeight="25.0" prefWidth="323.0" promptText="search" />
+            <Button fx:id="adduser" layoutX="77.0" layoutY="586.0" mnemonicParsing="false" onAction="#addnew" prefHeight="42.0" prefWidth="150.0" styleClass="purple-button" stylesheets="@styles/style.css" text="Back" textFill="WHITE" />
+            <TableView fx:id="aff" layoutX="355.0" layoutY="124.0" onMouseClicked="#rowClick" prefHeight="526.0" prefWidth="710.0" />
             <Label fx:id="idlabel" layoutX="126.0" layoutY="17.0" prefHeight="17.0" prefWidth="113.0" />
          </children>
       </AnchorPane>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="82.0" prefWidth="1211.0" stylesheets="@/values/style.css">
+         <children>
+            <Button mnemonicParsing="false" onAction="#goToDon2" prefHeight="62.0" prefWidth="147.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Dons" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="178.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Rendez-Vous" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="130.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Forum" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../../Donn/src/main/resources/styles/style.css" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button layoutX="7.0" layoutY="11.0" mnemonicParsing="false" onAction="#goToOrg" prefHeight="61.0" prefWidth="170.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Organisations" textFill="WHITE">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Separator layoutX="10.0" layoutY="20.0" maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+               </children>
+            </Pane>
+            <HBox alignment="CENTER" prefHeight="81.0" prefWidth="286.0">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/img/ic_search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="search" prefHeight="44.0" prefWidth="260.0" promptText="Search....." styleClass="top-bar" stylesheets="@/values/style.css">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+            <Button layoutX="420.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="62.0" prefWidth="210.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <styleClass>
+            <String fx:value="top-bar" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </HBox>
    </children>
 </AnchorPane>

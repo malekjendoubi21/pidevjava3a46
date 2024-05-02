@@ -48,13 +48,12 @@ public class homeController {
         scene.setRoot(root);
     }
     public void initialize() {
-        // Initialise les données de l'utilisateur à partir de SessionManager
         currentUser = SessionManager.getCurrentUser();
 
         if (currentUser != null) {
 
             displayUserInfo(currentUser);
-            displayUserImage(currentUser); // Affichez l'image de l'utilisateur
+            displayUserImage(currentUser);
 
         }
     }
@@ -66,12 +65,11 @@ public class homeController {
     }
 
     private void displayUserImage(user user) {
-        String imagePath = user.getProfileImage(); // Obtenez le chemin de l'image de l'utilisateur
+        String imagePath = user.getProfileImage();
         if (imagePath != null && !imagePath.isEmpty()) {
             Image image = new Image(imagePath);
             profileimage.setImage(image);
         } else {
-            // Affichez une image par défaut si le chemin de l'image est vide ou nul
             Image defaultImage = new Image(getClass().getResourceAsStream("default_profile_image.png"));
             profileimage.setImage(defaultImage);
         }

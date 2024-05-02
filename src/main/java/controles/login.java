@@ -73,7 +73,6 @@ public class login {
 
         System.out.println("loginbtn");
         try {
-            //get all users
             List<user> usersL= us.read();
             System.out.println(captchaInput.getText()+" c le input");
 
@@ -93,12 +92,8 @@ public class login {
             }
 
 
-            //loop through all users
             for (user value : usersL) {
-                //encrypt pwd to compare it w input from usr
-                //      String encrypted= PasswordEncryptor.encrypt(password.getText());
                 String normal=password.getText();
-                // find user with matching email and pswd
                 if (value.getEmail().equals(email.getText())) {
                     if (value.getPassword().equals(normal)) {
                         user = value;
@@ -190,7 +185,6 @@ public class login {
         if (captcha != null) {
             System.out.println(captcha.getAnswer());
 
-            // if (captcha.isCorrect(captchaInput.getText())) {
             if (captcha.getAnswer().equals(captchaInput.getText())) {
 
                 System.out.println("isValidCaptcha if");
@@ -200,7 +194,6 @@ public class login {
                 System.out.println("isValidCaptcha else");
                 MyAnimation.shake(captchaInput);
                 captcha = generateCaptcha();
-                //captchaInput.clear();
                 return false;
             }
         }
@@ -255,17 +248,13 @@ public class login {
 
     public void add(javafx.scene.input.MouseEvent mouseEvent) {
         try {
-            // Charger le fichier FXML d'adduser
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/home.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec le contenu de adduser
             Scene scene = new Scene(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement (mouseEvent)
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
 
-            // Définir la nouvelle scène
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -277,17 +266,13 @@ public class login {
     public void reset(MouseEvent mouseEvent) {
 
         try {
-            // Charger le fichier FXML d'adduser
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ForgottenPwd.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec le contenu de adduser
             Scene scene = new Scene(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement (mouseEvent)
             Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
 
-            // Définir la nouvelle scène
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

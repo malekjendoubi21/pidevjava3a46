@@ -93,6 +93,35 @@ public class adduser {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
+            String emailText = email.getText();
+            if (emailText.isEmpty() || !emailText.contains("@") || !emailText.endsWith(".com")) {
+                showErrorAlert("Invalid email! Please enter a valid email address.");
+                return;
+            }
+
+            String passwordText = password.getText();
+            if (passwordText.isEmpty() || !passwordText.matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
+                showErrorAlert("Invalid password! Password must contain at least one uppercase letter, one digit, and have a minimum length of 8 characters.");
+                return;
+            }
+
+            String numtelText = numtel.getText();
+            if (numtelText.isEmpty() || !numtelText.matches("^\\d{8}$") || Integer.parseInt(numtelText) < 0) {
+                showErrorAlert("Invalid phone number! Please enter a valid 8-digit positive integer.");
+                return;
+            }
+
+            String nomText = nom.getText();
+            if (nomText.isEmpty() || !nomText.matches("[a-zA-Z]+")) {
+                showErrorAlert("Invalid name! Please enter a valid name containing letters only.");
+                return;
+            }
+
+            String prenomText = prenom.getText();
+            if (prenomText.isEmpty() || !prenomText.matches("[a-zA-Z]+")) {
+                showErrorAlert("Invalid last name! Please enter a valid last name containing letters only.");
+                return;
+            }
             user newUser = new user();
             newUser.setEmail(email.getText());
             try {
@@ -159,17 +188,13 @@ public class adduser {
     @FXML
     void annuler(ActionEvent event) {
         try {
-            // Charger le fichier FXML d'adduser
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/back.fxml"));
             Parent root = loader.load();
 
-            // Créer une nouvelle scène avec le contenu de adduser
             Scene scene = new Scene(root);
 
-            // Obtenir la fenêtre actuelle à partir de l'événement
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            // Définir la nouvelle scène
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
