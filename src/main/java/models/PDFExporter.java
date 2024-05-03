@@ -8,8 +8,12 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.ArrayList;
+import java.util.List;
+import javafx.collections.FXCollections;
 public class PDFExporter {
 
     private static PDDocument document;
@@ -42,7 +46,7 @@ public class PDFExporter {
             yPosition = yStart;
 
 
-            String imagePath = "C:/Users/Mega-PC/Desktop/Workshop/src/main/resources/list.png";
+            String imagePath = "C:/Users/Mega-PC/Desktop/Workshop/src/main/resources/mahyeshbentk.png";
             PDImageXObject image = PDImageXObject.createFromFile(imagePath, document);
             float imageWidth = 100;
             float imageHeight = 100;
@@ -93,7 +97,21 @@ public class PDFExporter {
     private static void drawTableData(PDPageContentStream contentStream, float yStart, float tableWidth,
                                       float cellMargin, ObservableList<reclamation> data, float tableHeight, float rowHeight) throws IOException {
         float yPosition = yStart;
+        List<String> badWords = new ArrayList<>();
+        BufferedReader br = new BufferedReader(new FileReader("C:/Users/Mega-PC/Desktop/Workshop/badwords.txt"));
+        String line;
+        while ((line = br.readLine()) != null) {
+            badWords.add(line.trim().toLowerCase());
+        }
+        System.out.println(badWords);
         for (reclamation item : data) {
+            String content = item.getContenu();
+            for (String badWord : badWords) {
+                if (content.toLowerCase().contains(badWord)) {
+                    content = content.replaceAll("(?i)\\b" + badWord + "\\b", "****");
+                }
+            }
+            item.setContenu(content);
             if (yPosition - rowHeight <= 0) {
                 PDPage newPage = new PDPage();
                 document.addPage(newPage);
