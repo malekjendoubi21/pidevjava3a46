@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import models.reclamation;
 import models.reponse;
+import models.notif;
 import services.DataValidation;
 import services.ReclamationService;
 import services.ReponseService;
@@ -15,10 +16,13 @@ import services.ReponseService;
 import java.io.IOException;
 import java.sql.SQLException;
 import javafx.scene.control.Label;
+import services.notifservice;
+
 public class repondre {
     private ReclamationService rs = new ReclamationService();
     private ReponseService rss = new ReponseService();
     reclamation data =reclamation.getInstance();
+    private notifservice ns = new notifservice();
     @FXML
     private Label txtlabel;
     @FXML
@@ -46,6 +50,8 @@ public class repondre {
             Parent root = FXMLLoader.load(getClass().getResource("/homea.fxml"));
             txt.getScene().setRoot(root);
         }
+        notif n=new notif(data.getId());
+        ns.create(n);
     }
     @FXML
     void ff(ActionEvent event) throws IOException {
