@@ -1,12 +1,12 @@
 package tests;
 
-import models.user;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import services.userservice;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
