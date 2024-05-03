@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchore" minHeight="-Infinity" minWidth="-Infinity" prefHeight="796.0" prefWidth="1530.0" style="-fx-background-radius: 40;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXMLAjoutDossierController">
+   <children>
+      <ImageView fitHeight="1022.0" fitWidth="1558.0" layoutX="-7.0" layoutY="-153.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 40;">
+         <image>
+            <Image url="@bg.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="tfid" layoutX="563.0" layoutY="294.0" prefHeight="38.0" prefWidth="382.0" promptText="identifiant du patient" />
+      <TextArea fx:id="tfmaladie" layoutX="563.0" layoutY="388.0" prefHeight="70.0" prefWidth="382.0" promptText="maladie chronique" />
+      <Button layoutX="543.0" layoutY="537.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color:  #5AAC4E;" text="Ajouter le rapport" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <TextField fx:id="tfgrpsang" layoutX="563.0" layoutY="342.0" prefHeight="38.0" prefWidth="382.0" promptText="groupe sanguin" />
+      <Button layoutX="811.0" layoutY="537.0" mnemonicParsing="false" onAction="#gstDossier" prefHeight="46.0" prefWidth="151.0" style="-fx-background-color:  #5AAC4E;" text="Mes rapports" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <ComboBox fx:id="tfresultat_analyse" layoutX="654.0" layoutY="481.0" prefHeight="38.0" prefWidth="200.0" promptText="resultat des analyses" style="-fx-background-color:  #5AAC4E;" />
+      <Label layoutX="575.0" layoutY="100.0" prefHeight="144.0" prefWidth="358.0" text="Rapport Medical">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+      <Button layoutX="75.0" layoutY="48.0" mnemonicParsing="false" onAction="#retour" prefHeight="46.0" prefWidth="158.0" style="-fx-background-color: #5AAC4E;" text="Retour" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
