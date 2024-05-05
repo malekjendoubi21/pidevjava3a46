@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.login">
+   <children>
+      <ImageView fx:id="logo" fitHeight="113.0" fitWidth="136.0" layoutX="248.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image%20(1).png" />
+         </image>
+      </ImageView>
+      <Text layoutX="150.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <Text layoutX="139.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+      <TextField fx:id="email" layoutX="225.0" layoutY="159.0" />
+      <TextField fx:id="password" layoutX="225.0" layoutY="196.0" />
+      <Button layoutX="264.0" layoutY="265.0" mnemonicParsing="false" onAction="#login" prefHeight="30.0" prefWidth="71.0" text="Login" textFill="#04ff00">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="captchaInput" layoutX="390.0" layoutY="235.0" prefHeight="26.0" prefWidth="174.0" />
+
+      <Text fill="#ff0303" layoutX="256.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget Password" />
+      <Text fill="#00ff09" layoutX="592.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create account" wrappingWidth="182.68246459960938">
+         <font>
+            <Font size="25.0" />
+         </font></Text>
+      <ImageView fx:id="captchImg" fitHeight="100.0" fitWidth="166.0" layoutX="395.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="um_logoviewLogin" fitHeight="100.0" fitWidth="120.0" layoutX="553.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      </ImageView>
+
+   </children>
+</AnchorPane>
