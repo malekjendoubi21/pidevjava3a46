@@ -27,47 +27,16 @@
       <Button layoutX="730.0" layoutY="559.0" mnemonicParsing="false" onAction="#back" prefHeight="36.0" prefWidth="78.0" styleClass="pink-button" text="Annuler" textFill="WHITE" />
       <Button layoutX="222.0" layoutY="448.0" mnemonicParsing="false" onAction="#updatepassword" prefHeight="36.0" prefWidth="132.0" style="-fx-background-color: Red;" styleClass="purple-button" text="Update Password" textFill="WHITE" />
       <Button layoutX="131.0" layoutY="511.0" mnemonicParsing="false" onAction="#del" prefHeight="36.0" prefWidth="113.0" styleClass="pink-button" text="Supprimer" textFill="WHITE" />
-      <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="82.0" prefWidth="1167.0" stylesheets="@/values/style.css">
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="82.0" prefWidth="1167.0" stylesheets="@/styles/style.css">
          <children>
-            <Button mnemonicParsing="false" onAction="#goToDon2" prefHeight="62.0" prefWidth="147.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Dons" textFill="WHITE">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+
             <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="178.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Rendez-Vous" textFill="WHITE">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
+
             <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
-            <Button mnemonicParsing="false" prefHeight="61.0" prefWidth="130.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Forum" textFill="WHITE">
-               <font>
-                  <Font name="Andalus" size="20.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../../Donn/src/main/resources/styles/style.css" HBox.hgrow="ALWAYS">
+
+            <Pane prefHeight="200.0" prefWidth="200.0" stylesheets="@../../../../styles/style.css" HBox.hgrow="ALWAYS">
                <children>
-                  <Button layoutX="7.0" layoutY="11.0" mnemonicParsing="false" onAction="#goToOrg" prefHeight="61.0" prefWidth="170.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Organisations" textFill="WHITE">
-                     <font>
-                        <Font name="Andalus" size="20.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+
                   <Separator layoutX="10.0" layoutY="20.0" maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
                </children>
             </Pane>
@@ -78,7 +47,7 @@
                         <Image url="@/img/ic_search.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="search" prefHeight="44.0" prefWidth="260.0" promptText="Search....." styleClass="top-bar" stylesheets="@/values/style.css">
+                  <TextField prefHeight="44.0" prefWidth="260.0" promptText="Search....." styleClass="top-bar" stylesheets="@/styles/style.css">
                      <font>
                         <Font name="Andalus" size="20.0" />
                      </font>
@@ -88,7 +57,7 @@
                   </TextField>
                </children>
             </HBox>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Login" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/styles/style.css" text="Login" textFill="WHITE">
                <font>
                   <Font name="Andalus" size="20.0" />
                </font>
@@ -97,7 +66,7 @@
                </cursor>
             </Button>
             <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Register" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/styles/style.css" text="Register" textFill="WHITE">
                <font>
                   <Font name="Andalus" size="20.0" />
                </font>
@@ -109,7 +78,7 @@
                </cursor>
             </Button>
             <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
-            <Button layoutX="420.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="62.0" prefWidth="210.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Back" textFill="WHITE">
+            <Button layoutX="420.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="62.0" prefWidth="210.0" styleClass="purple-button" stylesheets="@/styles/style.css" text="Back" textFill="WHITE">
                <font>
                   <Font name="Andalus" size="20.0" />
                </font>

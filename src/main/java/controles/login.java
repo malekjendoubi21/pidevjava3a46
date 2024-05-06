@@ -12,6 +12,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import models.SessionManager;
 import models.user;
@@ -27,7 +29,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.EventObject;
 import java.util.List;
-
 public class login {
     user user= new user();
     userservice us= new userservice();
@@ -58,12 +59,23 @@ public class login {
     boolean captchaIsCorrect;
 
 
+    @FXML
+    private WebView chatWebView;
 
 
     public void initialize() {
         generateCaptcha();
         captchaIsCorrect=false;
+        WebEngine webEngine = chatWebView.getEngine();
 
+        // Exécuter le script JavaScript pour générer l'iframe
+        String script = "var body = document.getElementsByTagName('body');" +
+                "var div = document.createElement('div');" +
+                "var host = window.location.host ? window.location.origin : 'http://localhost/';" +
+                "div.innerHTML = '<iframe id=\"synvision_ai_iframe\" name=\"synvision_ai_iframe\" src=\"http://synvision.ai/chat-iframe?uuid=Myb0ToGW&host=' + host + '\" height=\"760px\" width=\"550px\" style=\"position:fixed;right:0;bottom: 20px;z-index: 100;border:none\"></iframe>';" +
+                "document.body.appendChild(div);";
+
+        webEngine.executeScript(script);
 
     }
 

@@ -7,9 +7,12 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 
 public class userservice implements IService<user>{
     private Connection connection;
+    private user currentUser;
     List<user> people = new ArrayList<>();
 
     public userservice(){
@@ -170,4 +173,34 @@ public class userservice implements IService<user>{
 
 
 
+
+
+    @Override
+    public user findByID(int id) {
+        user user = new user();
+        String req = "SELECT * FROM user WHERE id = ?";
+        try {
+            PreparedStatement  pste = connection.prepareStatement(req);
+            pste.setInt(1, id);
+            ResultSet rs = pste.executeQuery();
+            while (rs.next()) {
+
+                user.setId(rs.getInt("id"));
+                user.setEmail(rs.getString("email"));
+                user.setRoles(rs.getString("roles"));
+                user.setPassword(rs.getString("password"));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                user.setNumtel(rs.getInt("numtel"));
+                user.setBirth(rs.getObject("birth", LocalDate.class));
+                user.setProfileImage(rs.getString("profileImage"));
+                user.setGender(rs.getString("gender"));
+                return user;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(userservice.class.getName());
+        }
+
+        return user;
+    }
 }

@@ -1,11 +1,11 @@
 package services;
+
 import models.docteur;
 import models.user;
 import utils.MyDatabase;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,5 +88,11 @@ public class docteurservice implements IService<docteur> {
             docteurs.add(docteur);
         }
         return docteurs;
+    }
+    @Override
+    public user findByID(int id) {
+
+
+        return null;
     }
 }

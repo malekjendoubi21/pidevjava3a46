@@ -1,11 +1,11 @@
 package services;
 
 import models.patient;
+import models.user;
 import utils.MyDatabase;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,5 +78,12 @@ public class patientservice implements IService<patient>{
             patients.add(pat);
         }
         return patients;
+    }
+
+    @Override
+    public user findByID(int id) {
+
+
+        return null;
     }
 }
