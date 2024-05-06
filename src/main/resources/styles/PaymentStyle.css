@@ -1,0 +1,31 @@
+.primary-background{
+    -fx-background-color: #E47EC;
+}
+
+.secondary-background{
+    -fx-background-color: #F5F5F5 ;
+}
+
+
+.card {
+        -fx-background-color: #fff;
+        -fx-background-radius: 20;
+        -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 1), 10, 1, 0, 0);
+}
+
+.add-remove-layout{
+    -fx-border-radius: 50;
+    -fx-border-width: 1;
+    -fx-border-color: #303030;
+
+}
+
+.rect-round{
+    -fx-background-radius:20;
+}
+
+.btn{
+    -fx-border-radius: 3px;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="362.0" stylesheets="@styles/PaymentStyle.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <styleClass>
+      <String fx:value="secondary-background" />
+      <String fx:value="rect-round" />
+   </styleClass>
+   <children>
+      <AnchorPane prefHeight="582.0" prefWidth="364.0" style="-fx-background-color: white;" stylesheets="@styles/PaymentStyle.css">
+         <children>
+            <Text layoutX="77.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DONATION" textAlignment="CENTER" wrappingWidth="190.7831211090088">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Text>
+            <Button layoutX="83.0" layoutY="194.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="214.0" style="-fx-background-color: grey;" text=".">
+               <stylesheets>
+                  <URL value="@styles/PaymentStyle.css" />
+                  <URL value="@styles/style.css" />
+               </stylesheets>
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="shadow" />
+               </styleClass>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="76.0" layoutX="221.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../stripe-secure2-1-300x62.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="40.0" layoutY="289.0" prefHeight="38.0" prefWidth="264.0" promptText="1010 1010 1010 1010" />
+            <TextField layoutX="42.0" layoutY="356.0" prefHeight="38.0" prefWidth="115.0" promptText="MM/YY" />
+            <TextField layoutX="190.0" layoutY="356.0" prefHeight="38.0" prefWidth="115.0" promptText="CVC" />
+            <Button layoutX="94.0" layoutY="495.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="170.0" style="-fx-background-color: #625afa;" styleClass="rect-round" text="Donate" textFill="WHITE" />
+            <TextField layoutX="42.0" layoutY="122.0" prefHeight="38.0" prefWidth="264.0" promptText="payment@gmail.com" />
+            <HBox layoutX="-8.0" prefHeight="39.0" prefWidth="372.0" style="-fx-background-color: #625afa;" />
+            <CheckBox layoutX="19.0" layoutY="429.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" />
+            <Label layoutX="47.0" layoutY="422.0" prefHeight="35.0" prefWidth="303.0" text="I agree to Stripe's Press's Terms of Service and" />
+            <Label layoutX="47.0" layoutY="443.0" prefHeight="35.0" prefWidth="303.0" text="Privacy and Policy" />
+         </children>
+         <styleClass>
+            <String fx:value="primary-background" />
+            <String fx:value="rect-round" />
+         </styleClass>
+      </AnchorPane>
+   </children>
+</VBox>
