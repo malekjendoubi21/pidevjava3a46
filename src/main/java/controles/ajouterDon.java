@@ -39,6 +39,9 @@ public class ajouterDon implements Initializable {
     private Button ajouter;
 
     @FXML
+    private Button ajt;
+
+    @FXML
     private TextField description;
 
     @FXML
