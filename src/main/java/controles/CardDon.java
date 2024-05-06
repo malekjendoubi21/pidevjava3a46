@@ -26,6 +26,9 @@ public class CardDon {
     @FXML
     private HBox hbox;
 
+    @FXML
+    private HBox vbox;
+
 
     @FXML
     private Label image;
