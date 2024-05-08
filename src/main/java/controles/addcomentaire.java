@@ -2,30 +2,20 @@ package controles;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.util.Duration;
 import models.commentaire;
 import models.publication;
 import services.commentaireservice;
-import services.commentaireservice;
 import services.publicationservice;
-import utils.MyDatabase;
 import org.controlsfx.control.Notifications;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
-import java.util.stream.Collectors;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -69,7 +59,7 @@ public class addcomentaire {
     // Clé API de votre compte Twilio
     public static final String ACCOUNT_SID = "AC74d9a1a9a629af8a3d0580a2b6b5186a";
     // Clé secrète de votre compte Twilio
-    public static final String AUTH_TOKEN = "28454a21061bbafa4f524ff4ed2e79f6";
+    public static final String AUTH_TOKEN = "7edd526ba69db198091f49fab09eaacf";
     @FXML
     void initialize() throws SQLException {
        // ObservableList<commentaire> list = FXCollections.observableList(ps.read());
@@ -215,11 +205,10 @@ public class addcomentaire {
 
         }
     }
-
     @FXML
     void annuler(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/addpublication.fxml"));
             contentcomment.getScene().setRoot(root);
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());

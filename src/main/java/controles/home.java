@@ -14,7 +14,7 @@ public class home {
 
     @FXML
     void goToPub(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/add.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/addpublication.fxml")));
         Scene scene = ((Node) event.getSource()).getScene();
         scene.setRoot(root);
     }
@@ -23,7 +23,7 @@ public class home {
 
     @FXML
     void back(javafx.event.ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/add.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/addpublication.fxml")));
         Scene scene = ((Node) event.getSource()).getScene();
         scene.setRoot(root);
     }

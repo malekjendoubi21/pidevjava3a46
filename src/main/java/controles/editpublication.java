@@ -3,7 +3,6 @@ package controles;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,7 +12,6 @@ import models.publication;
 import services.publicationservice;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 
 public class editpublication {
 
@@ -43,7 +41,7 @@ public class editpublication {
 
     @FXML
     void retour(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/addpublication.fxml"));
         titre.getScene().setRoot(root);
         contenu.getScene().setRoot(root);
 
@@ -59,7 +57,7 @@ public class editpublication {
 
         System.out.println(data);
         os.update(data);
-        Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/addpublication.fxml"));
 
         modifier.getScene().setRoot(root);
 

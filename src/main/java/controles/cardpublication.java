@@ -1,24 +1,18 @@
 package controles;
 
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import models.publication;
 import services.publicationservice;
-import toolkit.QRCodeGenerator;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
@@ -63,7 +57,7 @@ public class cardpublication {
                 try {
 
                     ps.delete(Integer.parseInt(id.getText()));
-                    Parent root = FXMLLoader.load(getClass().getResource("/add.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("/addpublication.fxml"));
                     supprimer.getScene().setRoot(root);
                 } catch (IOException | SQLException e) {
                     throw new RuntimeException(e);
