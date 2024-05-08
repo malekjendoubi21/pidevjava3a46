@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="798.0" prefWidth="1531.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.listDon">
+    <children>
+        <BorderPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="699.0" prefWidth="1513.0" stylesheets="@values/style.css">
+            <top>
+                <HBox alignment="CENTER" prefHeight="82.0" prefWidth="1211.0" stylesheets="@/values/style.css" BorderPane.alignment="CENTER">
+                    <children>
+                  <Button mnemonicParsing="false" onAction="#goToHome" prefHeight="62.0" prefWidth="147.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Home" textFill="WHITE">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Button mnemonicParsing="false" onAction="#goToDon2" prefHeight="62.0" prefWidth="137.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Dons" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="220.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Rendez-Vous" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="192.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Forum" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                  <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Pane prefHeight="82.0" prefWidth="198.0" stylesheets="@styles/style.css" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#orgF" prefHeight="62.0" prefWidth="186.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Organisations" textFill="WHITE">
+                           <font>
+                              <Font name="Andalus" size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children></Pane>
+                        <HBox alignment="CENTER" prefHeight="81.0" prefWidth="286.0">
+                            <children>
+                                <ImageView fitHeight="25.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@/img/ic_search.png" />
+                                    </image>
+                                </ImageView>
+                                <TextField fx:id="search" onKeyTyped="#search" prefHeight="44.0" prefWidth="260.0" promptText="Search....." styleClass="top-bar" stylesheets="@/values/style.css">
+                                    <font>
+                                        <Font name="Andalus" size="20.0" />
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets left="10.0" />
+                                    </HBox.margin>
+                                </TextField>
+                            </children>
+                        </HBox>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Login" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="154.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Register" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Separator maxHeight="40.0" minHeight="40.0" orientation="VERTICAL" prefHeight="40.0" />
+                        <Button layoutX="420.0" layoutY="20.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="210.0" styleClass="purple-button" stylesheets="@/values/style.css" text="Support" textFill="WHITE">
+                            <font>
+                                <Font name="Andalus" size="20.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                    <styleClass>
+                        <String fx:value="top-bar" />
+                        <String fx:value="shadow" />
+                    </styleClass>
+                </HBox>
+            </top>
+         <center>
+            <AnchorPane prefHeight="681.0" prefWidth="1514.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="table" layoutX="14.0" layoutY="426.0" onMouseClicked="#select" prefHeight="73.0" prefWidth="119.0" stylesheets="@styles/style.css" visible="false" />
+                  <Button fx:id="ajout" layoutX="325.0" layoutY="532.0" mnemonicParsing="false" onAction="#don" prefHeight="38.0" prefWidth="102.0" styleClass="purple-button" stylesheets="@styles/style.css" text="Ajouter" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <ScrollPane layoutX="106.0" layoutY="37.0" prefHeight="463.0" prefWidth="1271.0">
+                     <content>
+                        <GridPane fx:id="gridpane" prefHeight="461.0" prefWidth="1270.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="115.00000610351563" minHeight="10.0" prefHeight="75.99999389648437" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="143.20001525878905" minHeight="10.0" prefHeight="89.1999755859375" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="164.19998779296873" minHeight="10.0" prefHeight="97.20002441406251" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+                  <Button fx:id="retour" layoutX="1036.0" layoutY="532.0" mnemonicParsing="false" onAction="#retour" prefHeight="38.0" prefWidth="102.0" styleClass="pink-button" stylesheets="@styles/style.css" text="Retour" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
