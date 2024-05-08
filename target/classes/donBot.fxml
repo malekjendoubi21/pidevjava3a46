@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="main_hook" prefHeight="760.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.donBotController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="760.0" prefWidth="1550.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="760.0" prefWidth="1550.0">
+                <children>
+                    <BorderPane fx:id="hold" prefHeight="705.0" prefWidth="1550.0">
+                  <top>
+                     <HBox prefHeight="50.0" prefWidth="1542.0" style="-fx-background-color: #5AAC4E;" BorderPane.alignment="CENTER" />
+                  </top></BorderPane>
+                </children>
+            </VBox>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </HBox>
+    </top>
+</BorderPane>

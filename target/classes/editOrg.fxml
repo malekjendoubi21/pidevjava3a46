@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.editOrg">
+   <children>
+      <AnchorPane prefHeight="798.0" prefWidth="1531.0">
+         <children>
+            <TextField fx:id="nom" layoutX="469.0" layoutY="102.0" prefHeight="26.0" prefWidth="270.0" />
+            <TextField fx:id="email" layoutX="469.0" layoutY="151.0" prefHeight="26.0" prefWidth="270.0" />
+            <TextField fx:id="adresse" editable="false" layoutX="469.0" layoutY="201.0" prefHeight="26.0" prefWidth="280.0" />
+            <TextField fx:id="num_tel" layoutX="469.0" layoutY="264.0" prefHeight="26.0" prefWidth="290.0" />
+            <Button fx:id="modifier" layoutX="370.0" layoutY="469.0" mnemonicParsing="false" onAction="#update" prefHeight="40.0" prefWidth="98.0" styleClass="purple-button" stylesheets="@styles/style.css" text="Modifier" textFill="WHITE" />
+            <Button fx:id="retour" layoutX="749.0" layoutY="469.0" mnemonicParsing="false" onAction="#retour" prefHeight="40.0" prefWidth="108.0" styleClass="pink-button" stylesheets="@styles/style.css" text="Retour" textFill="WHITE" />
+            <VBox layoutX="10.0" layoutY="10.0" />
+            <Label layoutX="381.0" layoutY="106.0" prefHeight="18.0" prefWidth="62.0" text="Nom" />
+            <Label layoutX="381.0" layoutY="146.0" prefHeight="18.0" prefWidth="62.0" text="Email" />
+            <Label layoutX="381.0" layoutY="201.0" prefHeight="18.0" prefWidth="62.0" text="Adresse" />
+            <Label layoutX="350.0" layoutY="268.0" prefHeight="18.0" prefWidth="108.0" text="Numéro téléphone" />
+            <AnchorPane layoutX="-6.0" prefHeight="798.0" prefWidth="226.0" styleClass="sidebar" stylesheets="@styles/stylesheet.css">
+               <children>
+                  <ImageView fitHeight="83.0" fitWidth="118.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  </ImageView>
+                  <ImageView fitHeight="109.0" fitWidth="131.0" layoutX="46.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/lg.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="orgF" layoutX="16.0" layoutY="190.0" mnemonicParsing="false" onAction="#orgF" prefHeight="46.0" prefWidth="194.0" style="-fx-background-color: black;" styleClass="pink-button" stylesheets="@styles/style.css" text="Organisations" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="donB" layoutX="16.0" layoutY="281.0" mnemonicParsing="false" onAction="#donB" prefHeight="46.0" prefWidth="194.0" styleClass="pink-button" stylesheets="@styles/style.css" text="Dons" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="front" layoutX="17.0" layoutY="358.0" mnemonicParsing="false" onAction="#front" prefHeight="46.0" prefWidth="194.0" style="-fx-background-color: #3ea4c7;" styleClass="pink-button" stylesheets="@styles/style.css" text="Front" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

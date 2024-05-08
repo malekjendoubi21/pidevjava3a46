@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c1ef0987-bbfb-49b3-b8e0-bd1d86be88a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controles/DonChoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controles/chatController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/chatController.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="CSS File" />
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/controles/editDon.java" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2bwLmXpeWreLa6UzIDhXm31EVOs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notreatment [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notreatment [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notreatment [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.notreatment [org.openjfx:javafx-maven-plugin:0.0.8:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MAHOX/Desktop/pidevjava3a46-gestion_user&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="controles" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\MAHOX\Desktop\Donn2\Donn\src\main\resources" />
+      <recent name="C:\Users\MAHOX\Desktop\Donn2\Donn\src\main\resources\styles" />
+      <recent name="C:\Users\MAHOX\Desktop\Donn\src\main\resources" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\resources" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\resources\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\MAHOX\Desktop\Donn2\Donn\src\main\resources" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\java\controles" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\resources\styles" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\resources" />
+      <recent name="C:\Users\MAHOX\Desktop\Donation\src\main\java\backend" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="services" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="controles" />
+      <recent name="tests" />
+      <recent name="models" />
+      <recent name="utils" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Maven.notreatment [javafx:run]">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tests.Main" />
+      <module name="notreatment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Workshop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Workshop" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="notreatment [javafx:run]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="javafx:run" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Maven.notreatment [javafx:run]" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.9-corretto-17.0.9-4caba194b151-107bc6b7" />
+        <option value="jdk-21.0.1-openjdk-21.0.1-4caba194b151-23eed401" />
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1ef0987-bbfb-49b3-b8e0-bd1d86be88a7" name="Changes" comment="" />
+      <created>1707121355920</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707121355920</updated>
+      <workItem from="1707121356985" duration="4581000" />
+      <workItem from="1710642037838" duration="89000" />
+      <workItem from="1710728261640" duration="2487000" />
+      <workItem from="1711067246824" duration="1308000" />
+      <workItem from="1711068688435" duration="37000" />
+      <workItem from="1711068776369" duration="1425000" />
+      <workItem from="1711076823021" duration="782000" />
+      <workItem from="1711161720035" duration="1646000" />
+      <workItem from="1711164278547" duration="6990000" />
+      <workItem from="1711174272477" duration="315000" />
+      <workItem from="1711238807405" duration="6788000" />
+      <workItem from="1711255268154" duration="2890000" />
+      <workItem from="1711258968861" duration="4273000" />
+      <workItem from="1711312084300" duration="284000" />
+      <workItem from="1711370938451" duration="569000" />
+      <workItem from="1711371526571" duration="6805000" />
+      <workItem from="1711397309156" duration="6091000" />
+      <workItem from="1711403515018" duration="7649000" />
+      <workItem from="1711467401578" duration="3980000" />
+      <workItem from="1711477701893" duration="12476000" />
+      <workItem from="1711500631172" duration="50000" />
+      <workItem from="1711538059750" duration="6296000" />
+      <workItem from="1711552925998" duration="1063000" />
+      <workItem from="1711554011618" duration="4079000" />
+      <workItem from="1711558833097" duration="1348000" />
+      <workItem from="1711565817488" duration="382000" />
+      <workItem from="1711566633604" duration="3412000" />
+      <workItem from="1711572551421" duration="2314000" />
+      <workItem from="1711574902519" duration="96000" />
+      <workItem from="1711577608587" duration="9924000" />
+      <workItem from="1711628425804" duration="5350000" />
+      <workItem from="1711644687633" duration="40000" />
+      <workItem from="1711652355559" duration="487000" />
+      <workItem from="1711653692551" duration="5468000" />
+      <workItem from="1711714917197" duration="1328000" />
+      <workItem from="1711724874376" duration="1195000" />
+      <workItem from="1711726149106" duration="6252000" />
+      <workItem from="1711732473696" duration="1222000" />
+      <workItem from="1711742955265" duration="3637000" />
+      <workItem from="1711748046728" duration="1377000" />
+      <workItem from="1711749588095" duration="2254000" />
+      <workItem from="1711752230717" duration="11071000" />
+      <workItem from="1711802911068" duration="637000" />
+      <workItem from="1711806648578" duration="2947000" />
+      <workItem from="1711810481425" duration="264000" />
+      <workItem from="1711810766295" duration="136000" />
+      <workItem from="1711810909402" duration="8707000" />
+      <workItem from="1711830398973" duration="57000" />
+      <workItem from="1711830701881" duration="13964000" />
+      <workItem from="1712961152852" duration="101000" />
+      <workItem from="1713388679591" duration="5808000" />
+      <workItem from="1713396340776" duration="4929000" />
+      <workItem from="1713428885348" duration="1048000" />
+      <workItem from="1713441227684" duration="1989000" />
+      <workItem from="1713444471907" duration="4261000" />
+      <workItem from="1713463466877" duration="24000" />
+      <workItem from="1713467512290" duration="9175000" />
+      <workItem from="1713479107461" duration="3467000" />
+      <workItem from="1713483071067" duration="5487000" />
+      <workItem from="1713516187001" duration="8902000" />
+      <workItem from="1713528779570" duration="4058000" />
+      <workItem from="1713532896646" duration="1652000" />
+      <workItem from="1713565088386" duration="5756000" />
+      <workItem from="1713603014028" duration="4945000" />
+      <workItem from="1713613839092" duration="749000" />
+      <workItem from="1713620640012" duration="619000" />
+      <workItem from="1713656706092" duration="669000" />
+      <workItem from="1713657390437" duration="6902000" />
+      <workItem from="1713692553924" duration="5343000" />
+      <workItem from="1713704680208" duration="7847000" />
+      <workItem from="1713716425843" duration="535000" />
+      <workItem from="1713719135025" duration="1284000" />
+      <workItem from="1713720444682" duration="5777000" />
+      <workItem from="1713729524702" duration="4326000" />
+      <workItem from="1713862274030" duration="3062000" />
+      <workItem from="1713865393662" duration="2503000" />
+      <workItem from="1713868208260" duration="3755000" />
+      <workItem from="1713872060545" duration="8959000" />
+      <workItem from="1713899682209" duration="23587000" />
+      <workItem from="1713947890656" duration="6171000" />
+      <workItem from="1713960161400" duration="1010000" />
+      <workItem from="1713990202589" duration="4833000" />
+      <workItem from="1713999908345" duration="138000" />
+      <workItem from="1714000098261" duration="5667000" />
+      <workItem from="1714045507582" duration="944000" />
+      <workItem from="1714047602899" duration="9232000" />
+      <workItem from="1714138610320" duration="1286000" />
+      <workItem from="1714248961891" duration="4137000" />
+      <workItem from="1714414570542" duration="474000" />
+      <workItem from="1714478383774" duration="223000" />
+      <workItem from="1714509014131" duration="5334000" />
+      <workItem from="1714518896317" duration="602000" />
+      <workItem from="1714564566308" duration="385000" />
+      <workItem from="1714591502001" duration="5494000" />
+      <workItem from="1714605087212" duration="7187000" />
+      <workItem from="1714614367041" duration="681000" />
+      <workItem from="1714836144738" duration="100000" />
+      <workItem from="1714836468425" duration="5480000" />
+      <workItem from="1714857775503" duration="15583000" />
+      <workItem from="1714903034798" duration="42000" />
+      <workItem from="1714917288324" duration="693000" />
+      <workItem from="1714923749347" duration="3802000" />
+      <workItem from="1714928609567" duration="17135000" />
+      <workItem from="1714955581707" duration="448000" />
+      <workItem from="1715023429464" duration="693000" />
+      <workItem from="1715098275231" duration="1929000" />
+      <workItem from="1715103710166" duration="629000" />
+      <workItem from="1715111434941" duration="2605000" />
+      <workItem from="1715120666494" duration="1245000" />
+      <workItem from="1715127206760" duration="692000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -1,0 +1,142 @@
+.top-bar{
+    -fx-background-color: #5AAC4E;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.pink-button {
+    -fx-background-color: #FF1145;
+    -fx-background-radius: 100;
+    -fx-cursor: hand;
+}
+
+
+.purple-button{
+    -fx-background-color: #5AAC4E;
+    -fx-background-radius: 100;
+}
+
+.transparent-button{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 100;
+}
+
+.purple-button:hover {
+    -fx-background-color: #4D9641;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+.pink-button:hover {
+    -fx-background-color: #FF1145;
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+/* TextArea */
+.text-area {
+    -fx-background-color: #FFFFFF; /* Background color */
+    -fx-background-radius: 4px; /* Rounded corners */
+    -fx-border-color: #CCCCCC; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 4px; /* Border radius */
+    -fx-padding: 6px; /* Padding inside the TextArea */
+    -fx-font-size: 13px; /* Font size */
+    -fx-text-fill: #333333; /* Text color */
+}
+
+.text-area:focused {
+    -fx-border-color: #5AAC4E; /* Border color when focused */
+}
+
+.text-area .content {
+    -fx-background-color: transparent; /* Transparent background for the text content */
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: transparent; /* Transparent background for the scroll pane */
+}
+
+.text-area .scroll-pane .viewport {
+    -fx-background-color: transparent; /* Transparent background for the viewport */
+}
+
+.text-area .scroll-pane .content {
+    -fx-background-color: transparent; /* Transparent background for the content */
+}
+/* ComboBox */
+.combo-box {
+    -fx-background-color: #FFFFFF; /* Background color */
+    -fx-background-radius: 4px; /* Rounded corners */
+    -fx-border-color: #CCCCCC; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 4px; /* Border radius */
+    -fx-padding: 6px; /* Padding inside the ComboBox */
+    -fx-font-size: 13px; /* Font size */
+    -fx-text-fill: #333333; /* Text color */
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent; /* Make arrow button transparent */
+}
+
+.combo-box:focused {
+    -fx-border-color: #5AAC4E; /* Border color when focused */
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #FFFFFF; /* Background color of the dropdown */
+    -fx-background-radius: 4px; /* Rounded corners of the dropdown */
+    -fx-border-color: #CCCCCC; /* Border color of the dropdown */
+    -fx-border-width: 1px; /* Border width of the dropdown */
+    -fx-border-radius: 4px; /* Border radius of the dropdown */
+    -fx-font-size: 13px; /* Font size of the dropdown */
+    -fx-text-fill: #333333; /* Text color of the dropdown */
+}
+
+.purple-button:pressed {
+    -fx-background-color: #4D9641; /* change background color when pressed */
+    -fx-border-color: transparent; /* change border color when pressed */
+}
+.text-field {
+    -fx-background-color: #FFFFFF; /* Background color */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-border-color: #CCCCCC; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-padding: 8px; /* Padding inside the text field */
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: #333333; /* Text color */
+    -fx-prompt-text-fill: #999999; /* Placeholder text color */
+}
+
+.text-field:focused {
+    -fx-border-color: #5AAC4E; /* Border color when focused */
+    -fx-border-width: 2px; /* Border width when focused */
+    -fx-border-radius: 5px; /* Border radius when focused */
+}
+.transparent-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.3);
+    -fx-border-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-transition: background-color 0.3s, border-color 0.3s;
+}
+
+.shadow{
+    -fx-effect: dropShadow(one-pass-box,rgba(0,0,0,0.3), 10.0 , 0.0 , 0.0, 10.0);
+}
+
+.offer-background{
+    -fx-background-color: #5AAC4E;
+    -fx-background-radius: 30;
+}

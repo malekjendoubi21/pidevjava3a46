@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="299.0" styleClass="rect-round" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.CardOrg">
+   <children>
+      <VBox prefHeight="274.0" prefWidth="290.0" style="-fx-background-color: gray;">
+         <children>
+            <Label fx:id="id" text="Label" visible="false" />
+            <HBox>
+               <children>
+                  <Label fx:id="nom" alignment="CENTER" prefHeight="27.0" prefWidth="255.0" styleClass="shadow" stylesheets="@styles/style.css" text="   Label" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="email" alignment="CENTER" prefHeight="35.0" prefWidth="279.0" styleClass="shadow" stylesheets="@styles/style.css" text="Label" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="adresse" alignment="CENTER" prefHeight="35.0" prefWidth="272.0" styleClass="shadow" stylesheets="@styles/style.css" text="Label" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label fx:id="num_tel" alignment="CENTER" prefHeight="27.0" prefWidth="225.0" styleClass="shadow" stylesheets="@styles/style.css" text="         Label" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label fx:id="orgid" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imageOrg" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="imageO" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="95.0" prefWidth="282.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="modifier" mnemonicParsing="false" onAction="#modifier" prefHeight="41.0" prefWidth="122.0" stylesheets="@styles/style.css" text="Modifier" textFill="WHITE">
+                           <font>
+                              <Font name="Andalus" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="purple-button" />
+                           </styleClass>
+                        </Button>
+                        <Button fx:id="supprimer" mnemonicParsing="false" onAction="#del" prefHeight="41.0" prefWidth="122.0" stylesheets="@styles/style.css" text="Supprimer" textFill="WHITE">
+                           <font>
+                              <Font name="Andalus" size="18.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="pink-button" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="offer-background" />
+         </styleClass>
+         <stylesheets>
+            <URL value="@styles/style.css" />
+            <URL value="@styles/style.css" />
+         </stylesheets>
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@styles/style.css" />
+      <URL value="@styles/PaymentStyle.css" />
+   </stylesheets>
+</HBox>
