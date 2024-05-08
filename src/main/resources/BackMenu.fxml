@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controles.listOrg">
+   <children>
+      <VBox layoutY="3.0">
+         <children>
+            <AnchorPane id="mainAnchorPane" layoutX="1531.0" layoutY="798.0" prefHeight="701.0" prefWidth="1531.0" style="-fx-background-color: grey;" stylesheets="@styles/stylesheet.css">
+            
+                <!-- Main Content Area -->
+                <AnchorPane layoutX="213.0" layoutY="-3.0" prefHeight="798.0" prefWidth="1531.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label fx:id="nomLabel" layoutX="513.0" layoutY="141.0" prefHeight="18.0" prefWidth="244.0" />
+                        <Label fx:id="emailLabel" layoutX="521.0" layoutY="186.0" prefHeight="18.0" prefWidth="244.0" />
+                        <Label fx:id="adresseLabel" layoutX="521.0" layoutY="227.0" prefHeight="18.0" prefWidth="244.0" />
+                        <Label fx:id="num_telLabel" layoutX="521.0" layoutY="284.0" prefHeight="18.0" prefWidth="244.0" />
+                        <TextField fx:id="search" layoutX="337.0" layoutY="14.0" prefHeight="26.0" prefWidth="469.0" promptText="Search...." styleClass="text-field-search" />
+                    </children>
+                </AnchorPane>
+               <VBox layoutY="-8.0" prefHeight="808.0" prefWidth="212.0" styleClass="sidebar" stylesheets="@styles/stylesheet.css">
+                  <children>
+                     <VBox prefHeight="768.0" prefWidth="201.0">
+                        <children>
+                           <AnchorPane prefHeight="776.0" prefWidth="212.0">
+                              <children>
+                                 <Button layoutX="8.0" layoutY="185.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" style="-fx-background-color: black;" styleClass="pink-button" stylesheets="@styles/style.css" text="Organisations" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="16.0" />
+                                    </font>
+                                 </Button>
+                                 <ImageView fitHeight="109.0" fitWidth="131.0" layoutX="36.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                       <Image url="@img/lg.png" />
+                                    </image>
+                                 </ImageView>
+                                 <Button layoutX="8.0" layoutY="266.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" styleClass="pink-button" stylesheets="@styles/style.css" text="Dons" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="16.0" />
+                                    </font>
+                                 </Button>
+                                 <Button layoutX="9.0" layoutY="349.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="194.0" style="-fx-background-color: #3ea4c7;" styleClass="pink-button" stylesheets="@styles/style.css" text="Front" textFill="WHITE">
+                                    <font>
+                                       <Font name="System Bold" size="16.0" />
+                                    </font>
+                                 </Button>
+                              </children>
+                           </AnchorPane>
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
